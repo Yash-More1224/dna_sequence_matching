@@ -1,0 +1,37 @@
+# Configuration for Wagner-Fischer algorithm experiments
+
+# Algorithm parameters
+algorithm:
+  max_distance: 2
+  substitution_cost: 1
+  insertion_cost: 1
+  deletion_cost: 1
+
+# Benchmark settings
+benchmark:
+  pattern_lengths: [10, 20, 50, 100, 200, 500]
+  text_lengths: [1000, 5000, 10000, 50000, 100000]
+  edit_thresholds: [0, 1, 2, 3, 5, 7, 10]
+  iterations: 10
+  output_dir: "results/benchmarks"
+
+# Accuracy evaluation settings
+accuracy:
+  pattern_lengths: [10, 20, 50, 100]
+  text_length: 10000
+  num_tests: 50
+  mutation_rates: [0.01, 0.02, 0.05]
+  output_dir: "results/accuracy"
+
+# Visualization settings
+visualization:
+  output_dir: "results/plots"
+  dpi: 300
+  figure_format: "png"
+
+# Data settings
+data:
+  data_dir: "data"
+  synthetic_sequences: 100
+  sequence_length: 10000
+  cache_datasets: true
