@@ -170,171 +170,497 @@ All components of the Wagner-Fischer algorithm for DNA sequence matching have be
 
 ---
 
-## 🚀 How to Use
+## 🚀 Setup & Installation
 
-### Quick Start
+### Prerequisites Check
 ```bash
-# 1. Setup
+# Check Python version (need 3.8+)
+python3 --version
+
+# Check pip
+pip --version
+```
+
+### Installation Steps
+
+#### 1. Create Virtual Environment
+```bash
 cd wagner-fischer
 python3 -m venv venv
-source venv/bin/activate.fish  # or bash: source venv/bin/activate
-pip install -r requirements.txt
+```
 
-# 2. Run demo
+#### 2. Activate Virtual Environment
+
+**On Linux/Mac (bash/zsh):**
+```bash
+source venv/bin/activate
+```
+
+**On Fish shell:**
+```fish
+source venv/bin/activate.fish
+```
+
+**On Windows:**
+```cmd
+venv\Scripts\activate
+```
+
+#### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+#### 4. Verify Installation
+```bash
+# Run the verification script
+python3 verify.py
+
+# Run the demo
 python3 demo.py
 
-# 3. Try basic commands
+# Run tests
+pytest tests/ -v
+
+# Check help
+python3 main.py --help
+```
+
+---
+
+## 🎯 Quick Start Guide
+
+### Basic Commands
+
+#### 1️⃣ Compute Edit Distance
+```bash
+# Basic usage
 python3 main.py distance ATCG ATCG
-python3 main.py search ATCG --text "GGATCGGGATCG" --max-distance 1
 
-# 4. Generate test data
+# With alignment display
+python3 main.py distance ATCGATCG ATCGTTCG --show-alignment
+```
+
+#### 2️⃣ Search for Patterns
+```bash
+# Search in provided text
+python3 main.py search ATCG --text "GGATCGGGATCGAAA" --max-distance 2
+
+# Search with promoter motif
+python3 main.py search TATAAT --text "GCGCTATAATAGCGC" --max-distance 2
+
+# Search in file
+python3 main.py search ATCG --text-file data/ecoli_k12.fna.gz --max-distance 1
+```
+
+#### 3️⃣ Generate Test Data
+```bash
+# Download E. coli genome
+python3 main.py data --download-ecoli
+
+# Generate synthetic sequences
 python3 main.py data --generate-synthetic
+```
 
-# 5. Run experiments
+#### 4️⃣ Run Benchmarks
+```bash
+# Quick benchmark
+python3 main.py benchmark \
+    --test-edit-distance \
+    --pattern-lengths 10 50 100 \
+    --iterations 10
+
+# Full benchmark suite
 python3 main.py benchmark --full
+
+# Specific tests
+python3 main.py benchmark --test-threshold --thresholds 0 1 2 3 5
+```
+
+#### 5️⃣ Evaluate Accuracy
+```bash
+# Quick accuracy test
+python3 main.py accuracy --test-exact --pattern-lengths 10 20
+
+# Full accuracy evaluation
 python3 main.py accuracy --full
 
-# 6. Create visualizations
+# Mutation tests
+python3 main.py accuracy --test-mutations --mutation-rate 0.02
+```
+
+#### 6️⃣ Generate Visualizations
+```bash
 python3 main.py visualize \
     --benchmark-csv results/benchmarks/benchmark_results.csv \
     --accuracy-csv results/accuracy/accuracy_results.csv \
     --comparison
 ```
 
-### Using in Python
-```python
-from wf_core import levenshtein_distance
-from wf_search import PatternSearcher
+#### 7️⃣ Run Interactive Demo
+```bash
+python3 demo.py
+```
 
-# Compute distance
-distance = levenshtein_distance("ATCG", "TTCG")
+#### 8️⃣ Run All Experiments (Automated)
+```bash
+# Fish shell users
+./run_experiments.fish
 
-# Search for patterns
-searcher = PatternSearcher(max_distance=2)
-matches = searcher.search("ATCG", dna_sequence)
+# Bash/Zsh users
+bash run_experiments.fish  # or adapt to bash script
 ```
 
 ---
 
-## 📈 Expected Results
+## 💻 Python API Usage
 
-### Benchmark Outputs
-- `results/benchmarks/benchmark_results.csv` - Detailed metrics
-- `results/benchmarks/benchmark_results.json` - JSON format
-- `results/plots/benchmark_summary.png` - Performance plots
-- `results/plots/wf_vs_regex.png` - Comparison charts
+### Basic Edit Distance
+```python
+from wf_core import levenshtein_distance
 
-### Accuracy Outputs
-- `results/accuracy/accuracy_results.csv` - Precision/Recall/F1
-- `results/accuracy/confusion_matrix.csv` - TP/FP/TN/FN
-- `results/plots/accuracy_summary.png` - Accuracy curves
+# Simple distance computation
+distance = levenshtein_distance("ATCG", "TTCG")
+print(f"Edit distance: {distance}")  # Output: 1
+
+# With similarity ratio
+from wf_core import similarity_ratio
+sim = similarity_ratio("ATCG", "TTCG")
+print(f"Similarity: {sim:.2%}")  # Output: 75.00%
+```
+
+### Pattern Search
+```python
+from wf_search import PatternSearcher
+
+# Create searcher with max distance
+searcher = PatternSearcher(max_distance=2)
+
+# Search for pattern
+matches = searcher.search("ATCG", dna_sequence)
+
+# Process results
+for match in matches:
+    print(f"Found at position {match.position}")
+    print(f"Edit distance: {match.edit_distance}")
+    print(f"Matched text: {match.matched_text}")
+```
+
+### With Alignment
+```python
+from wf_core import WagnerFischer
+
+# Create instance
+wf = WagnerFischer()
+
+# Compute with traceback
+distance, operations = wf.compute_with_traceback("ATCG", "TTCG")
+
+print(f"Distance: {distance}")
+for op in operations:
+    print(f"  {op}")
+```
+
+### Load DNA Sequences
+```python
+from data_loader import FastaLoader
+
+# Load FASTA file
+loader = FastaLoader()
+sequences = loader.load("genome.fasta")
+
+for seq in sequences:
+    print(f"{seq.id}: {len(seq.sequence)} bp")
+```
+
+### Generate Synthetic Data
+```python
+from data_loader import SyntheticDataGenerator
+
+# Create generator
+generator = SyntheticDataGenerator()
+
+# Generate random sequence
+seq = generator.generate_random_sequence(length=1000)
+
+# Generate with mutations
+original = generator.generate_random_sequence(length=500)
+mutated = generator.mutate_sequence(original, mutation_rate=0.02)
+```
 
 ---
 
 ## 🧪 Testing
 
+### Run All Tests
 ```bash
-# Run all tests
+# Run all tests with verbose output
 pytest tests/ -v
 
-# Run with coverage
+# Run specific test file
+pytest tests/test_wf_core.py -v
+pytest tests/test_search.py -v
+pytest tests/test_integration.py -v
+```
+
+### Test Coverage
+```bash
+# Generate coverage report
 pytest tests/ --cov=. --cov-report=html
 
-# Run specific test
+# View coverage in browser
+open htmlcov/index.html
+```
+
+### Run Specific Tests
+```bash
+# Run a specific test
 pytest tests/test_wf_core.py::TestWagnerFischer::test_identical_strings -v
+
+# Run tests matching pattern
+pytest tests/ -k "test_distance" -v
 ```
 
 ---
 
-## 📊 Performance Characteristics
+## 🔧 Troubleshooting
 
-### Time Complexity
-- **Edit Distance**: O(m × n)
-- **Space Optimized**: O(min(m, n))
-- **Pattern Search**: O(L × m × n) where L = text length
+### Import Errors
+If you get import errors, ensure:
+- Virtual environment is activated
+- Dependencies are installed: `pip install -r requirements.txt`
+- You're in the correct directory
 
-### Space Complexity
-- **Full Matrix**: O(m × n)
-- **Optimized**: O(min(m, n))
-- **Search**: O(matches × alignment_length)
+```bash
+# Reinstall dependencies
+pip install -r requirements.txt
+```
 
-### Typical Performance (on 2.5 GHz CPU)
-- Edit distance (100bp): ~0.1 ms
-- Pattern search (10kb, k=2): ~50-100 ms
-- Full benchmark suite: ~5-10 minutes
-- Full accuracy eval: ~2-5 minutes
+### Biopython Not Found
+```bash
+pip install biopython
+```
 
----
+### Matplotlib/Seaborn Issues
+```bash
+pip install matplotlib seaborn
+```
 
-## 🎓 Academic Context
+### Memory Errors
+If you run out of memory during benchmarks:
+- Reduce text length: `--text-length 1000`
+- Reduce iterations: `--iterations 5`
+- Use smaller pattern lengths
 
-This implementation fulfills all requirements for the AAD course project:
+### Permission Denied
+Make scripts executable:
+```bash
+chmod +x main.py demo.py verify.py run_experiments.fish
+```
 
-1. ✅ **Algorithm Implementation**: Complete Wagner-Fischer with optimizations
-2. ✅ **Experimental Analysis**: Comprehensive benchmarks and accuracy tests
-3. ✅ **DNA Application**: Optimized for DNA sequences (4-letter alphabet)
-4. ✅ **Comparison**: Benchmarked against Python's `re` module
-5. ✅ **Visualization**: Multiple plot types for results
-6. ✅ **Reproducibility**: All experiments are scripted and documented
-7. ✅ **Code Quality**: Well-tested, documented, and modular
+### Wrong Python Version
+```bash
+python3 --version  # Should be 3.8+
+```
 
----
+### Tests Failing
+```bash
+# Run verification script
+python3 verify.py
 
-## 🔄 Next Steps
-
-### For Immediate Use:
-1. Install dependencies: `pip install -r requirements.txt`
-2. Run demo: `python3 demo.py`
-3. Run tests: `pytest tests/`
-4. Start experimenting!
-
-### For Experiments:
-1. Generate synthetic data: `python3 main.py data --generate-synthetic`
-2. Download E. coli genome: `python3 main.py data --download-ecoli`
-3. Run benchmarks: `python3 main.py benchmark --full`
-4. Generate plots: `python3 main.py visualize ...`
-
-### For Development:
-1. Read the code documentation
-2. Check test files for examples
-3. Modify `config.yaml` for custom settings
-4. Add new features and tests
+# Check for errors
+python3 -c "import wf_core, wf_search, data_loader; print('All modules loaded successfully')"
+```
 
 ---
 
-## 📞 Support
+## 📊 Complete Experiment Workflow
 
-- **Documentation**: See README.md and SETUP.md
-- **Examples**: Run `python3 demo.py` or check README.md
-- **Help**: `python3 main.py --help` or `python3 main.py <command> --help`
-- **Tests**: `pytest tests/ -v` to verify installation
+### Step-by-Step Process
+
+#### Step 1: Environment Setup (One-time)
+```bash
+cd wagner-fischer
+python3 -m venv venv
+source venv/bin/activate.fish  # or bash: source venv/bin/activate
+pip install -r requirements.txt
+python3 verify.py
+```
+
+#### Step 2: Generate Test Data
+```bash
+# Generate synthetic sequences
+python3 main.py data --generate-synthetic
+
+# Optional: Download real genome
+python3 main.py data --download-ecoli
+```
+
+#### Step 3: Run Benchmarks
+```bash
+# Quick test
+python3 main.py benchmark \
+    --test-edit-distance \
+    --pattern-lengths 10 50 100 \
+    --iterations 10
+
+# Full benchmark suite (takes 5-10 minutes)
+python3 main.py benchmark --full
+```
+
+#### Step 4: Evaluate Accuracy
+```bash
+# Quick test
+python3 main.py accuracy --test-exact --pattern-lengths 10 20
+
+# Full accuracy evaluation (takes 2-5 minutes)
+python3 main.py accuracy --full
+```
+
+#### Step 5: Generate Visualizations
+```bash
+python3 main.py visualize \
+    --benchmark-csv results/benchmarks/benchmark_results.csv \
+    --accuracy-csv results/accuracy/accuracy_results.csv \
+    --comparison
+```
+
+#### Step 6: Review Results
+```bash
+# View results
+ls results/benchmarks/
+ls results/accuracy/
+ls results/plots/
+
+# Open plots
+xdg-open results/plots/benchmark_summary.png
+xdg-open results/plots/accuracy_summary.png
+```
+
+### Automated Workflow (Fish Shell)
+```bash
+# Run all experiments with one command
+./run_experiments.fish
+```
 
 ---
 
-## ✨ Key Highlights
+## 📈 Expected Performance & Results
 
-1. **Complete Implementation**: All planned features implemented
-2. **Well-Tested**: 95+ test cases covering core functionality
-3. **Production-Ready**: Error handling, logging, configuration
-4. **Documented**: Extensive docs with examples
-5. **Benchmarked**: Ready for performance analysis
-6. **Visualized**: Multiple plot types for results
-7. **Modular**: Easy to extend and modify
-8. **Educational**: Clear code with detailed comments
+### Typical Execution Times (on modern CPU)
+| Operation | Input Size | Expected Time |
+|-----------|-----------|---------------|
+| Edit distance | 100bp | ~0.1 ms |
+| Edit distance | 1000bp | ~10 ms |
+| Pattern search | 10kb text, k=2 | ~50-100 ms |
+| Full benchmark suite | Various | ~5-10 minutes |
+| Full accuracy suite | Various | ~2-5 minutes |
+
+### Memory Usage
+| Operation | Input Size | Expected Memory |
+|-----------|-----------|-----------------|
+| Small sequences | <1kb | <1 MB |
+| Medium sequences | 10kb | 5-10 MB |
+| Large sequences | 100kb | 50-100 MB |
+
+### Benchmark Outputs
+- `results/benchmarks/benchmark_results.csv` - Detailed metrics (time, memory, iterations)
+- `results/benchmarks/benchmark_results.json` - JSON format for programmatic access
+- `results/plots/benchmark_summary.png` - Performance plots
+- `results/plots/wf_vs_regex.png` - Comparison charts
+
+### Accuracy Outputs
+- `results/accuracy/accuracy_results.csv` - Precision/Recall/F1 scores
+- `results/accuracy/confusion_matrix.csv` - TP/FP/TN/FN counts
+- `results/plots/accuracy_summary.png` - Accuracy curves
 
 ---
 
-## 🎉 Project Status: **COMPLETE** ✅
+## 🎓 Use Cases & Examples
 
-The Wagner-Fischer algorithm implementation is fully functional and ready for:
-- Academic evaluation
-- Performance experiments
-- DNA sequence analysis
-- Further research and development
+### Use Case 1: DNA Sequence Analysis
+Find approximate matches of promoter motifs in bacterial genomes:
+```bash
+python3 main.py search TATAAT \
+    --text-file data/ecoli_k12.fna.gz \
+    --max-distance 2
+```
 
-**All requirements met. Ready to use!** 🚀
+### Use Case 2: Algorithm Research
+Compare performance characteristics of different variants:
+```bash
+python3 main.py benchmark \
+    --test-threshold \
+    --thresholds 0 1 2 3 5 \
+    --pattern-lengths 10 50 100
+```
+
+### Use Case 3: Accuracy Testing
+Evaluate performance on synthetic data with known mutations:
+```bash
+python3 main.py accuracy \
+    --test-mutations \
+    --mutation-rate 0.02 \
+    --pattern-lengths 20 50 100
+```
+
+### Use Case 4: Educational Demonstrations
+Show how edit distance works with alignment visualization:
+```bash
+python3 main.py distance ATCGATCG ATCGTTCG --show-alignment
+```
 
 ---
 
-*Last Updated: November 7, 2025*
-*Author: AAD Project Team*
+## 📞 Getting Help
+
+### Command Line Help
+```bash
+# General help
+python3 main.py --help
+
+# Command-specific help
+python3 main.py distance --help
+python3 main.py search --help
+python3 main.py benchmark --help
+python3 main.py accuracy --help
+python3 main.py visualize --help
+python3 main.py data --help
+```
+
+### Verification
+```bash
+# Run verification script
+python3 verify.py
+
+# Run demo
+python3 demo.py
+```
+
+### Documentation Files
+| File | Purpose |
+|------|---------|
+| `README.md` | Complete documentation with examples |
+| `PROJECT_SUMMARY.md` | This file - comprehensive guide |
+| `config.yaml` | Configuration settings |
+
+---
+
+## ✅ Pre-Experiment Checklist
+
+Before running experiments:
+- [ ] Python 3.8+ installed
+- [ ] Virtual environment created and activated
+- [ ] Dependencies installed (`pip install -r requirements.txt`)
+- [ ] Verification passed (`python3 verify.py`)
+- [ ] Demo works (`python3 demo.py`)
+- [ ] Tests pass (`pytest tests/`)
+- [ ] Test data generated (`python3 main.py data --generate-synthetic`)
+
+Ready to run experiments:
+- [ ] Benchmarks executed (`python3 main.py benchmark --full`)
+- [ ] Accuracy evaluated (`python3 main.py accuracy --full`)
+- [ ] Visualizations created (`python3 main.py visualize ...`)
+- [ ] Results reviewed (`ls results/`)
+
+---
