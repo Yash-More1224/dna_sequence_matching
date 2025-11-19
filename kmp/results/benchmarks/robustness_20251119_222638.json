@@ -1,0 +1,52 @@
+[
+  {
+    "pattern_type": "random",
+    "description": "Random subsequence from genome",
+    "pattern_length": 100,
+    "gc_content": 0.59,
+    "preprocessing_time_us": 6.868001946713775,
+    "mean_search_time_ms": 339.79413229972124,
+    "std_dev_ms": 22.377945818076793,
+    "num_matches": 1
+  },
+  {
+    "pattern_type": "repeat_A",
+    "description": "High A content (80%)",
+    "pattern_length": 100,
+    "gc_content": 0.2,
+    "preprocessing_time_us": 7.5169991760049015,
+    "mean_search_time_ms": 306.43241410034534,
+    "std_dev_ms": 1.1674630704093987,
+    "num_matches": 0
+  },
+  {
+    "pattern_type": "repeat_AT",
+    "description": "Alternating AT pattern",
+    "pattern_length": 100,
+    "gc_content": 0.0,
+    "preprocessing_time_us": 5.062000127509236,
+    "mean_search_time_ms": 298.2328090994997,
+    "std_dev_ms": 0.841352357610313,
+    "num_matches": 0
+  },
+  {
+    "pattern_type": "low_complexity",
+    "description": "Low complexity (AAATAAATAAAT...)",
+    "pattern_length": 100,
+    "gc_content": 0.0,
+    "preprocessing_time_us": 7.03200203133747,
+    "mean_search_time_ms": 300.3716445000464,
+    "std_dev_ms": 6.847883473329411,
+    "num_matches": 0
+  },
+  {
+    "pattern_type": "high_GC",
+    "description": "High GC content (80%)",
+    "pattern_length": 100,
+    "gc_content": 0.8,
+    "preprocessing_time_us": 6.082998879719526,
+    "mean_search_time_ms": 298.9241190996836,
+    "std_dev_ms": 5.693032591397486,
+    "num_matches": 0
+  }
+]

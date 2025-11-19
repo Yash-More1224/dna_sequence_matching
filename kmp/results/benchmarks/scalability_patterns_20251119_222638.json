@@ -1,0 +1,56 @@
+[
+  {
+    "num_patterns": 1,
+    "pattern_length": 50,
+    "text_length": 4641652,
+    "total_time_ms": 366.2958240020089,
+    "avg_time_per_pattern_ms": 366.2958240020089,
+    "total_matches": 1,
+    "patterns_per_sec": 2.73003385371523
+  },
+  {
+    "num_patterns": 5,
+    "pattern_length": 50,
+    "text_length": 4641652,
+    "total_time_ms": 1729.2956599994795,
+    "avg_time_per_pattern_ms": 345.8591319998959,
+    "total_matches": 5,
+    "patterns_per_sec": 2.8913505744885204
+  },
+  {
+    "num_patterns": 10,
+    "pattern_length": 50,
+    "text_length": 4641652,
+    "total_time_ms": 3423.3238870001514,
+    "avg_time_per_pattern_ms": 342.33238870001514,
+    "total_matches": 10,
+    "patterns_per_sec": 2.9211375639840407
+  },
+  {
+    "num_patterns": 20,
+    "pattern_length": 50,
+    "text_length": 4641652,
+    "total_time_ms": 6919.9589759991795,
+    "avg_time_per_pattern_ms": 345.997948799959,
+    "total_matches": 20,
+    "patterns_per_sec": 2.8901905443900673
+  },
+  {
+    "num_patterns": 50,
+    "pattern_length": 50,
+    "text_length": 4641652,
+    "total_time_ms": 17161.253746999137,
+    "avg_time_per_pattern_ms": 343.22507493998273,
+    "total_matches": 52,
+    "patterns_per_sec": 2.9135400441674104
+  },
+  {
+    "num_patterns": 100,
+    "pattern_length": 50,
+    "text_length": 4641652,
+    "total_time_ms": 34652.71913600009,
+    "avg_time_per_pattern_ms": 346.52719136000087,
+    "total_matches": 103,
+    "patterns_per_sec": 2.8857764265925034
+  }
+]

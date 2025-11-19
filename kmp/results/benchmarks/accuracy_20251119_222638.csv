@@ -1,0 +1,16 @@
+dataset,pattern_length,num_tests,true_positives,false_positives,false_negatives,precision,recall,f1_score,agreement_rate
+ecoli,10,5,49,0,0,1.0,1.0,1.0,1.0
+ecoli,20,5,5,0,0,1.0,1.0,1.0,1.0
+ecoli,50,5,5,0,0,1.0,1.0,1.0,1.0
+ecoli,100,5,5,0,0,1.0,1.0,1.0,1.0
+ecoli,200,5,5,0,0,1.0,1.0,1.0,1.0
+lambda_phage,10,5,5,0,0,1.0,1.0,1.0,1.0
+lambda_phage,20,5,5,0,0,1.0,1.0,1.0,1.0
+lambda_phage,50,5,5,0,0,1.0,1.0,1.0,1.0
+lambda_phage,100,5,5,0,0,1.0,1.0,1.0,1.0
+lambda_phage,200,5,5,0,0,1.0,1.0,1.0,1.0
+salmonella,10,5,39,0,0,1.0,1.0,1.0,1.0
+salmonella,20,5,5,0,0,1.0,1.0,1.0,1.0
+salmonella,50,5,5,0,0,1.0,1.0,1.0,1.0
+salmonella,100,5,5,0,0,1.0,1.0,1.0,1.0
+salmonella,200,5,5,0,0,1.0,1.0,1.0,1.0

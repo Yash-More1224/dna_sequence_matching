@@ -1,0 +1,82 @@
+[
+  {
+    "pattern_length": 10,
+    "num_runs": 20,
+    "mean_preprocessing_time_us": 0.6376496457960457,
+    "std_dev_us": 0.5074146755224522,
+    "lps_memory_bytes": 80,
+    "time_complexity_ratio": 0.06376496457960457
+  },
+  {
+    "pattern_length": 20,
+    "num_runs": 20,
+    "mean_preprocessing_time_us": 1.1226504284422845,
+    "std_dev_us": 0.22935022041185543,
+    "lps_memory_bytes": 160,
+    "time_complexity_ratio": 0.05613252142211422
+  },
+  {
+    "pattern_length": 50,
+    "num_runs": 20,
+    "mean_preprocessing_time_us": 2.457449954818003,
+    "std_dev_us": 0.21030270627451178,
+    "lps_memory_bytes": 400,
+    "time_complexity_ratio": 0.04914899909636006
+  },
+  {
+    "pattern_length": 100,
+    "num_runs": 20,
+    "mean_preprocessing_time_us": 4.77800022053998,
+    "std_dev_us": 0.24949526286190915,
+    "lps_memory_bytes": 800,
+    "time_complexity_ratio": 0.047780002205399796
+  },
+  {
+    "pattern_length": 200,
+    "num_runs": 20,
+    "mean_preprocessing_time_us": 10.274050509906374,
+    "std_dev_us": 0.3824166972194258,
+    "lps_memory_bytes": 1600,
+    "time_complexity_ratio": 0.05137025254953187
+  },
+  {
+    "pattern_length": 500,
+    "num_runs": 20,
+    "mean_preprocessing_time_us": 26.344499747210648,
+    "std_dev_us": 1.8569226123339957,
+    "lps_memory_bytes": 4000,
+    "time_complexity_ratio": 0.052688999494421296
+  },
+  {
+    "pattern_length": 1000,
+    "num_runs": 20,
+    "mean_preprocessing_time_us": 55.57704989769263,
+    "std_dev_us": 1.8744773306995686,
+    "lps_memory_bytes": 8000,
+    "time_complexity_ratio": 0.05557704989769263
+  },
+  {
+    "pattern_length": 2000,
+    "num_runs": 20,
+    "mean_preprocessing_time_us": 115.32795033417642,
+    "std_dev_us": 3.0314740338946446,
+    "lps_memory_bytes": 16000,
+    "time_complexity_ratio": 0.05766397516708821
+  },
+  {
+    "pattern_length": 5000,
+    "num_runs": 20,
+    "mean_preprocessing_time_us": 283.8516496922239,
+    "std_dev_us": 3.576247239084713,
+    "lps_memory_bytes": 40000,
+    "time_complexity_ratio": 0.056770329938444775
+  },
+  {
+    "pattern_length": 10000,
+    "num_runs": 20,
+    "mean_preprocessing_time_us": 553.8758003240218,
+    "std_dev_us": 5.3200601256128595,
+    "lps_memory_bytes": 80000,
+    "time_complexity_ratio": 0.055387580032402184
+  }
+]

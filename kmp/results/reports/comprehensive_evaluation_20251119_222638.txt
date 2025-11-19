@@ -1,0 +1,184 @@
+================================================================================
+KMP ALGORITHM - COMPREHENSIVE EVALUATION REPORT
+================================================================================
+Generated: 2025-11-19 22:26:38
+
+EXECUTIVE SUMMARY
+--------------------------------------------------------------------------------
+
+This report presents a comprehensive evaluation of the Knuth-Morris-Pratt (KMP)
+algorithm for exact pattern matching in DNA sequences, covering:
+
+1. Latency/Time: Runtime characteristics and throughput analysis
+2. Preprocessing: LPS array construction performance
+3. Memory Usage: Peak memory and index footprint
+4. Accuracy: Correctness validation against Python re
+5. Scalability: Performance with varying text and pattern counts
+6. Robustness: Behavior across different pattern types
+
+
+DATASETS EVALUATED
+--------------------------------------------------------------------------------
+
+ecoli:
+  Length: 4,641,652 bp
+  GC Content: 50.79%
+
+lambda_phage:
+  Length: 48,502 bp
+  GC Content: 49.86%
+
+salmonella:
+  Length: 4,857,450 bp
+  GC Content: 52.22%
+
+
+LATENCY TIME
+--------------------------------------------------------------------------------
+
+See detailed CSV/JSON files for complete data.
+Total measurements: 18
+
+
+PREPROCESSING
+--------------------------------------------------------------------------------
+
+See detailed CSV/JSON files for complete data.
+Total measurements: 10
+
+
+MEMORY
+--------------------------------------------------------------------------------
+
+See detailed CSV/JSON files for complete data.
+Total measurements: 7
+
+
+ACCURACY
+--------------------------------------------------------------------------------
+
+Correctness Validation (using Python re as ground truth):
+
+  ecoli - Pattern 10bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  ecoli - Pattern 20bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  ecoli - Pattern 50bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  ecoli - Pattern 100bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  ecoli - Pattern 200bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  lambda_phage - Pattern 10bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  lambda_phage - Pattern 20bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  lambda_phage - Pattern 50bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  lambda_phage - Pattern 100bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  lambda_phage - Pattern 200bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  salmonella - Pattern 10bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  salmonella - Pattern 20bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  salmonella - Pattern 50bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  salmonella - Pattern 100bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+  salmonella - Pattern 200bp:
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+    Agreement Rate: 100.0%
+
+
+SCALABILITY TEXT
+--------------------------------------------------------------------------------
+
+See detailed CSV/JSON files for complete data.
+Total measurements: 8
+
+
+SCALABILITY PATTERNS
+--------------------------------------------------------------------------------
+
+See detailed CSV/JSON files for complete data.
+Total measurements: 6
+
+
+ROBUSTNESS
+--------------------------------------------------------------------------------
+
+See detailed CSV/JSON files for complete data.
+Total measurements: 5
+
+
+KEY FINDINGS
+--------------------------------------------------------------------------------
+
+1. Accuracy: Perfect correctness (Precision=1.0000, Recall=1.0000, F1=1.0000)
+2. Performance: Average throughput 12.82 MB/s
+3. Preprocessing: Linear time complexity confirmed (O(m))
+4. Scalability: Linear time complexity with text length (O(n))
+
+================================================================================
+END OF REPORT
+================================================================================
