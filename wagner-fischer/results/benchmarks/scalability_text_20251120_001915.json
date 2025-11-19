@@ -1,0 +1,32 @@
+[
+  {
+    "text_length": 1000,
+    "pattern_length": 30,
+    "mean_runtime": 0.009056775668189706,
+    "throughput_bp_s": 110414.57099487624
+  },
+  {
+    "text_length": 2000,
+    "pattern_length": 30,
+    "mean_runtime": 0.009175552668845436,
+    "throughput_bp_s": 217970.52146959785
+  },
+  {
+    "text_length": 5000,
+    "pattern_length": 30,
+    "mean_runtime": 0.010208781665520897,
+    "throughput_bp_s": 489774.4083299364
+  },
+  {
+    "text_length": 10000,
+    "pattern_length": 30,
+    "mean_runtime": 0.010813386000033157,
+    "throughput_bp_s": 924779.7128456653
+  },
+  {
+    "text_length": 20000,
+    "pattern_length": 30,
+    "mean_runtime": 0.01138795633596601,
+    "throughput_bp_s": 1756241.366752962
+  }
+]

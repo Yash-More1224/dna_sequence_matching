@@ -45,11 +45,6 @@ data/*.fasta
 data/*.fastq
 data/*.gz
 
-# Results
-results/
-*.csv
-*.json
-
 # OS
 .DS_Store
 Thumbs.db

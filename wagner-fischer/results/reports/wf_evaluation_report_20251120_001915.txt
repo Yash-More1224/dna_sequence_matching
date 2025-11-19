@@ -1,0 +1,205 @@
+================================================================================
+WAGNER-FISCHER ALGORITHM - COMPREHENSIVE EVALUATION REPORT
+================================================================================
+Generated: 2025-11-20 00:19:38
+
+EXECUTIVE SUMMARY
+--------------------------------------------------------------------------------
+This report presents a comprehensive evaluation of the Wagner-Fischer
+algorithm for approximate pattern matching using edit distance, covering:
+
+1. Latency/Time: Runtime characteristics and throughput analysis
+2. Memory Usage: Peak memory and space complexity
+3. Accuracy: Precision/Recall/F1 for approximate matching
+4. Scalability: Performance with varying text and pattern counts
+5. Robustness: Behavior across different mutation rates
+
+DATASETS EVALUATED
+--------------------------------------------------------------------------------
+Salmonella Typhimurium
+Ecoli K12 Mg1655
+Lambda Phage
+
+LATENCY/TIME
+--------------------------------------------------------------------------------
+Total measurements: 15
+See detailed CSV/JSON files for complete data.
+
+Mean runtime: 12.3781 ms
+Median runtime: 5.9299 ms
+
+MEMORY
+--------------------------------------------------------------------------------
+Total measurements: 9
+See detailed CSV/JSON files for complete data.
+
+Average peak memory: 0.03 MB
+Index footprint: 0.00 MB (WF has no preprocessing index)
+
+ACCURACY
+--------------------------------------------------------------------------------
+Approximate Matching Validation:
+
+  Ecoli K12 Mg1655 - Pattern 20bp - Mutation 0%:
+    Edit Distance: 0
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Ecoli K12 Mg1655 - Pattern 20bp - Mutation 1%:
+    Edit Distance: 1
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Ecoli K12 Mg1655 - Pattern 20bp - Mutation 5%:
+    Edit Distance: 1
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Ecoli K12 Mg1655 - Pattern 20bp - Mutation 10%:
+    Edit Distance: 2
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Ecoli K12 Mg1655 - Pattern 30bp - Mutation 0%:
+    Edit Distance: 0
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Ecoli K12 Mg1655 - Pattern 30bp - Mutation 1%:
+    Edit Distance: 1
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Ecoli K12 Mg1655 - Pattern 30bp - Mutation 5%:
+    Edit Distance: 1
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Ecoli K12 Mg1655 - Pattern 30bp - Mutation 10%:
+    Edit Distance: 2
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Ecoli K12 Mg1655 - Pattern 50bp - Mutation 0%:
+    Edit Distance: 0
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Ecoli K12 Mg1655 - Pattern 50bp - Mutation 1%:
+    Edit Distance: 1
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Ecoli K12 Mg1655 - Pattern 50bp - Mutation 5%:
+    Edit Distance: 2
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Ecoli K12 Mg1655 - Pattern 50bp - Mutation 10%:
+    Edit Distance: 3
+    Within Threshold: True
+    Precision: 0.000000
+    Recall: 1.000000
+    F1 Score: 0.000000
+
+  Lambda Phage - Pattern 20bp - Mutation 0%:
+    Edit Distance: 0
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Lambda Phage - Pattern 20bp - Mutation 1%:
+    Edit Distance: 1
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Lambda Phage - Pattern 20bp - Mutation 5%:
+    Edit Distance: 1
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Lambda Phage - Pattern 20bp - Mutation 10%:
+    Edit Distance: 2
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Lambda Phage - Pattern 30bp - Mutation 0%:
+    Edit Distance: 0
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Lambda Phage - Pattern 30bp - Mutation 1%:
+    Edit Distance: 1
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Lambda Phage - Pattern 30bp - Mutation 5%:
+    Edit Distance: 1
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+  Lambda Phage - Pattern 30bp - Mutation 10%:
+    Edit Distance: 2
+    Within Threshold: True
+    Precision: 1.000000
+    Recall: 1.000000
+    F1 Score: 1.000000
+
+SCALABILITY
+--------------------------------------------------------------------------------
+Text length scaling: 5 measurements
+Pattern count scaling: 5 measurements
+See detailed CSV/JSON files for complete data.
+
+ROBUSTNESS
+--------------------------------------------------------------------------------
+Total measurements: 7
+See detailed CSV/JSON files for complete data.
+
+KEY FINDINGS
+--------------------------------------------------------------------------------
+1. Algorithm: Wagner-Fischer dynamic programming (edit distance)
+2. Time Complexity: O(m*n) for full matrix, O(m*n) with O(min(m,n)) space
+3. Space Complexity: O(min(m,n)) with optimized variant
+4. Approximate Matching: Supports threshold-based matching
+5. No Preprocessing: Zero preprocessing time (unlike KMP)
+6. Variants Implemented: Full matrix, space-optimized, banded, threshold
+
+================================================================================
+END OF REPORT
+================================================================================

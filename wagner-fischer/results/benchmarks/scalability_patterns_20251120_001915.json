@@ -1,0 +1,37 @@
+[
+  {
+    "pattern_count": 5,
+    "pattern_length": 30,
+    "total_runtime": 0.053669799999624956,
+    "mean_latency": 0.010733959999924991,
+    "throughput_patterns_s": 93.16226257662484
+  },
+  {
+    "pattern_count": 10,
+    "pattern_length": 30,
+    "total_runtime": 0.09247711900388822,
+    "mean_latency": 0.009247711900388821,
+    "throughput_patterns_s": 108.13485657549029
+  },
+  {
+    "pattern_count": 20,
+    "pattern_length": 30,
+    "total_runtime": 0.15991483199468348,
+    "mean_latency": 0.007995741599734174,
+    "throughput_patterns_s": 125.0665729409322
+  },
+  {
+    "pattern_count": 50,
+    "pattern_length": 30,
+    "total_runtime": 0.3425645919996896,
+    "mean_latency": 0.006851291839993791,
+    "throughput_patterns_s": 145.95787529624576
+  },
+  {
+    "pattern_count": 100,
+    "pattern_length": 30,
+    "total_runtime": 0.8389971629949287,
+    "mean_latency": 0.008389971629949287,
+    "throughput_patterns_s": 119.18991435326755
+  }
+]

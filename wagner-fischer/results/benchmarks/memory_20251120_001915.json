@@ -1,0 +1,65 @@
+[
+  {
+    "dataset": "Ecoli K12 Mg1655",
+    "pattern_length": 20,
+    "peak_tracemalloc_mb": 0.032871246337890625,
+    "peak_rss_mb": 45.125,
+    "index_footprint_mb": 0.0
+  },
+  {
+    "dataset": "Ecoli K12 Mg1655",
+    "pattern_length": 50,
+    "peak_tracemalloc_mb": 0.032871246337890625,
+    "peak_rss_mb": 45.125,
+    "index_footprint_mb": 0.0
+  },
+  {
+    "dataset": "Ecoli K12 Mg1655",
+    "pattern_length": 100,
+    "peak_tracemalloc_mb": 0.032871246337890625,
+    "peak_rss_mb": 45.125,
+    "index_footprint_mb": 0.0
+  },
+  {
+    "dataset": "Lambda Phage",
+    "pattern_length": 20,
+    "peak_tracemalloc_mb": 0.032871246337890625,
+    "peak_rss_mb": 45.125,
+    "index_footprint_mb": 0.0
+  },
+  {
+    "dataset": "Lambda Phage",
+    "pattern_length": 50,
+    "peak_tracemalloc_mb": 0.032871246337890625,
+    "peak_rss_mb": 45.125,
+    "index_footprint_mb": 0.0
+  },
+  {
+    "dataset": "Lambda Phage",
+    "pattern_length": 100,
+    "peak_tracemalloc_mb": 0.032871246337890625,
+    "peak_rss_mb": 45.125,
+    "index_footprint_mb": 0.0
+  },
+  {
+    "dataset": "Salmonella Typhimurium",
+    "pattern_length": 20,
+    "peak_tracemalloc_mb": 0.032932281494140625,
+    "peak_rss_mb": 45.125,
+    "index_footprint_mb": 0.0
+  },
+  {
+    "dataset": "Salmonella Typhimurium",
+    "pattern_length": 50,
+    "peak_tracemalloc_mb": 0.032932281494140625,
+    "peak_rss_mb": 45.125,
+    "index_footprint_mb": 0.0
+  },
+  {
+    "dataset": "Salmonella Typhimurium",
+    "pattern_length": 100,
+    "peak_tracemalloc_mb": 0.032932281494140625,
+    "peak_rss_mb": 45.125,
+    "index_footprint_mb": 0.0
+  }
+]
