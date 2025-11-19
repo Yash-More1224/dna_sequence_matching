@@ -1,0 +1,86 @@
+================================================================================
+SUFFIX ARRAY - COMPREHENSIVE EVALUATION REPORT
+================================================================================
+Generated: 2025-11-19 23:13:10
+
+DATASETS
+--------------------------------------------------------------------------------
+
+lambda_phage:
+  Length: 48,502 bp
+  GC Content: 49.86%
+
+ecoli:
+  Length: 100,000 bp
+  GC Content: 52.59%
+
+salmonella:
+  Length: 100,000 bp
+  GC Content: 51.35%
+
+
+ACCURACY RESULTS
+--------------------------------------------------------------------------------
+
+lambda_phage - Pattern 10bp:
+  Precision: 1.000000
+  Recall: 1.000000
+  F1: 1.000000
+
+lambda_phage - Pattern 20bp:
+  Precision: 1.000000
+  Recall: 1.000000
+  F1: 1.000000
+
+lambda_phage - Pattern 50bp:
+  Precision: 1.000000
+  Recall: 1.000000
+  F1: 1.000000
+
+lambda_phage - Pattern 100bp:
+  Precision: 1.000000
+  Recall: 1.000000
+  F1: 1.000000
+
+ecoli - Pattern 10bp:
+  Precision: 1.000000
+  Recall: 1.000000
+  F1: 1.000000
+
+ecoli - Pattern 20bp:
+  Precision: 1.000000
+  Recall: 1.000000
+  F1: 1.000000
+
+ecoli - Pattern 50bp:
+  Precision: 1.000000
+  Recall: 1.000000
+  F1: 1.000000
+
+ecoli - Pattern 100bp:
+  Precision: 1.000000
+  Recall: 1.000000
+  F1: 1.000000
+
+salmonella - Pattern 10bp:
+  Precision: 1.000000
+  Recall: 1.000000
+  F1: 1.000000
+
+salmonella - Pattern 20bp:
+  Precision: 1.000000
+  Recall: 1.000000
+  F1: 1.000000
+
+salmonella - Pattern 50bp:
+  Precision: 1.000000
+  Recall: 1.000000
+  F1: 1.000000
+
+salmonella - Pattern 100bp:
+  Precision: 1.000000
+  Recall: 1.000000
+  F1: 1.000000
+
+
+================================================================================

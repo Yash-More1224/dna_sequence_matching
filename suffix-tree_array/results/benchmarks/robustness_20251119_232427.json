@@ -1,0 +1,52 @@
+[
+  {
+    "dataset": "ecoli",
+    "pattern_type": "random",
+    "description": "Random from genome",
+    "pattern_length": 100,
+    "gc_content": 0.46,
+    "mean_search_time_ms": 0.016540799697395414,
+    "std_dev_ms": 0.004333061014559872,
+    "num_matches": 1
+  },
+  {
+    "dataset": "ecoli",
+    "pattern_type": "repeat_A",
+    "description": "High A content (80%)",
+    "pattern_length": 100,
+    "gc_content": 0.2,
+    "mean_search_time_ms": 0.014485400606645271,
+    "std_dev_ms": 0.004415750820776817,
+    "num_matches": 0
+  },
+  {
+    "dataset": "ecoli",
+    "pattern_type": "repeat_AT",
+    "description": "Alternating AT",
+    "pattern_length": 100,
+    "gc_content": 0.0,
+    "mean_search_time_ms": 0.014898599329171702,
+    "std_dev_ms": 0.004415259973661552,
+    "num_matches": 0
+  },
+  {
+    "dataset": "ecoli",
+    "pattern_type": "low_complexity",
+    "description": "Low complexity (AAATAAAT...)",
+    "pattern_length": 100,
+    "gc_content": 0.0,
+    "mean_search_time_ms": 0.015069600340211764,
+    "std_dev_ms": 0.004064675056956065,
+    "num_matches": 0
+  },
+  {
+    "dataset": "ecoli",
+    "pattern_type": "high_GC",
+    "description": "High GC content (80%)",
+    "pattern_length": 100,
+    "gc_content": 0.8,
+    "mean_search_time_ms": 0.014519799879053608,
+    "std_dev_ms": 0.0038589728497270023,
+    "num_matches": 0
+  }
+]

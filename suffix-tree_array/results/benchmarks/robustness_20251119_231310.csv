@@ -1,0 +1,4 @@
+pattern_type,description,pattern_length,gc_content,mean_search_time_ms,num_matches
+random,Random from genome,50,0.54,0.009169000501666838,1
+repeat_A,High A (80%),50,0.2,0.0065193332072036965,0
+repeat_AT,Alternating AT,50,0.0,0.0058986649188833935,0

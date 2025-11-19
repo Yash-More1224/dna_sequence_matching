@@ -1,0 +1,62 @@
+[
+  {
+    "dataset": "lambda_phage",
+    "text_length": 48502,
+    "construction_time_s": 0.09449468300226727,
+    "construction_time_ms": 94.49468300226727
+  },
+  {
+    "dataset": "ecoli",
+    "text_length": 4641652,
+    "construction_time_s": 59.496369239997875,
+    "construction_time_ms": 59496.369239997875
+  },
+  {
+    "dataset": "salmonella",
+    "text_length": 4857450,
+    "construction_time_s": 67.9757758079977,
+    "construction_time_ms": 67975.7758079977
+  },
+  {
+    "text_length": 1000,
+    "mean_construction_time_ms": 1.3554173334947943,
+    "std_dev_ms": 0.07505080236506105,
+    "time_per_char_us": 1.3554173334947943,
+    "sa_memory_bytes": 4000
+  },
+  {
+    "text_length": 5000,
+    "mean_construction_time_ms": 15.499880668357946,
+    "std_dev_ms": 8.124308533625692,
+    "time_per_char_us": 3.099976133671589,
+    "sa_memory_bytes": 20000
+  },
+  {
+    "text_length": 10000,
+    "mean_construction_time_ms": 20.64966433196484,
+    "std_dev_ms": 2.1610896718584547,
+    "time_per_char_us": 2.064966433196484,
+    "sa_memory_bytes": 40000
+  },
+  {
+    "text_length": 50000,
+    "mean_construction_time_ms": 105.58406966811162,
+    "std_dev_ms": 9.571142185271784,
+    "time_per_char_us": 2.1116813933622325,
+    "sa_memory_bytes": 200000
+  },
+  {
+    "text_length": 100000,
+    "mean_construction_time_ms": 320.2051143331725,
+    "std_dev_ms": 13.83188142520469,
+    "time_per_char_us": 3.202051143331725,
+    "sa_memory_bytes": 400000
+  },
+  {
+    "text_length": 500000,
+    "mean_construction_time_ms": 4163.563540667383,
+    "std_dev_ms": 43.8577397378436,
+    "time_per_char_us": 8.327127081334766,
+    "sa_memory_bytes": 2000000
+  }
+]
