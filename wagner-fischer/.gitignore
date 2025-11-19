@@ -55,5 +55,6 @@ Thumbs.db
 
 # Logs
 *.log
-tests/*.py
+tests/
 requirements.txt
+FILE_ANALYSIS.md
