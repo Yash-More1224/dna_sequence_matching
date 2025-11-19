@@ -1,0 +1,46 @@
+# Suffix Array Implementation Configuration
+
+# Dataset Configuration
+datasets:
+  ecoli:
+    name: "Escherichia coli K-12 MG1655"
+    accession: "NC_000913.3"
+    url: "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz"
+    local_path: "datasets/ecoli_genome.fasta"
+  
+# Experiment Configuration
+experiments:
+  pattern_lengths: [4, 8, 16, 32, 64, 128, 256, 512, 1000]
+  text_sizes: [10000, 50000, 100000, 500000, 1000000, 5000000]
+  repetitions: 10  # Number of times to repeat each experiment
+  synthetic_sequence_length: 1000000
+  mutation_rates: [0.0, 0.01, 0.05, 0.1]  # For approximate matching tests
+  repeat_min_lengths: [10, 15, 20, 25, 30]  # For repeat discovery experiments
+  
+# Benchmarking Configuration
+benchmarking:
+  warmup_runs: 3
+  min_runs: 5
+  max_time_per_test: 60  # seconds
+  memory_sampling_interval: 0.001  # seconds
+  
+# Visualization Configuration
+visualization:
+  figure_width: 12
+  figure_height: 8
+  dpi: 300
+  style: "seaborn-v0_8-darkgrid"
+  color_palette: "husl"
+  
+# Output Configuration
+output:
+  results_dir: "results"
+  plots_dir: "results/plots"
+  tables_dir: "results/tables"
+  reports_dir: "results/reports"
+  
+# Algorithm Configuration
+algorithm:
+  construction_method: "prefix_doubling"  # Manber-Myers algorithm
+  compare_with_re: true  # Compare against Python's re module
+  verbose_construction: false  # Print construction details

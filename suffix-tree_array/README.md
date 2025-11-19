@@ -1,49 +1,141 @@
-# DNA Pattern Matching - Suffix Array Implementation
+# Suffix Array Implementation for DNA Sequence Matching
 
-## Project Overview
+A comprehensive implementation and experimental analysis of the Suffix Array + LCP algorithm for DNA sequence matching, with a focus on the *E. coli* K-12 MG1655 genome.
 
-This is a production-ready implementation of **Suffix Array + LCP Array** indexing for efficient DNA pattern matching, developed as part of the String Pattern Matching on DNA Sequences project (October 2025).
+## 📋 Table of Contents
 
-## Key Features
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Algorithm Details](#algorithm-details)
+- [Project Structure](#project-structure)
+- [Usage Examples](#usage-examples)
+- [Running Experiments](#running-experiments)
+- [Results](#results)
+- [Testing](#testing)
+- [Documentation](#documentation)
+- [Requirements](#requirements)
 
-✓ **Efficient Construction**: O(N log N) suffix array building using prefix doubling  
-✓ **Fast Search**: O(|P| log |T|) exact pattern matching via binary search  
-✓ **Motif Discovery**: LCP-based repeat/motif finding in O(N) time  
-✓ **DNA Optimized**: Designed for {A, C, G, T, N} alphabet  
-✓ **Production Ready**: Comprehensive tests, benchmarks, and documentation  
-✓ **Memory Efficient**: ~2N integer memory footprint  
+## 🔬 Overview
 
-## Why Suffix Array over Suffix Tree?
+This project implements the **Suffix Array + LCP (Longest Common Prefix)** algorithm for efficient exact pattern matching in DNA sequences. The implementation includes:
 
-We chose **Suffix Array + LCP** over implementing Ukkonen's Suffix Tree algorithm for the following reasons:
+- Full Suffix Array construction using prefix doubling (Manber-Myers algorithm)
+- LCP array construction using Kasai's algorithm
+- Efficient binary search for pattern matching
+- Repeat/motif discovery capabilities
+- Comprehensive benchmarking framework
+- 8 detailed experiments analyzing performance characteristics
+- Comparison with Python's built-in `re` module
+- Real biological data analysis (E. coli genome)
+- Visualization and reporting tools
+
+## ✨ Features
+
+### Core Implementation
+- ✅ Pure Python implementation (PEP 8 compliant)
+- ✅ O(N log N) suffix array construction
+- ✅ O(N) LCP array construction
+- ✅ O(|P| log |T|) exact pattern matching
+- ✅ O(N) repeat discovery
+- ✅ Statistics tracking (comparisons, memory, time)
+
+### Data Handling
+- ✅ Automatic E. coli genome download from NCBI
+- ✅ FASTA/FASTQ file parsing (via Biopython)
+- ✅ Synthetic DNA sequence generation
+- ✅ Controlled mutation introduction
+
+### Analysis & Benchmarking
+- ✅ Time measurement (preprocessing + search)
+- ✅ Memory profiling
+- ✅ Throughput calculation
+- ✅ Comparison with Python `re`
+- ✅ 8 comprehensive experiments
+- ✅ Statistical analysis
+
+### Design Rationale
+- ✅ Simpler implementation than suffix trees
+- ✅ Better cache locality and memory efficiency
+- ✅ Competitive O(|P| log |T|) search performance
+- ✅ Easier Python integration
+- ✅ LCP array enables efficient repeat discovery
+
+## 📦 Installation
+
+### Prerequisites
+
+- Python 3.8 or higher
+- pip package manager
+
+### Setup
+
+1. **Navigate to the project directory:**
+   ```bash
+   cd suffix-tree_array
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Dependencies
+
+```
+biopython>=1.81
+numpy>=1.24
+matplotlib>=3.7
+seaborn>=0.12
+pandas>=2.0
+memory_profiler>=0.61
+psutil>=5.9
+pyyaml>=6.0
+requests>=2.31
+pytest>=7.4
+```
+
+## 🚀 Quick Start
+
+See [QUICKSTART.md](QUICKSTART.md) for detailed quick start guide.
+
+### Run the demo
+
+```bash
+python demo.py
+```
+
+### Run tests
+
+```bash
+python -m pytest tests/ -v
+```
+
+### Run experiments
+
+```bash
+python run_experiments.py
+```
+
+## 📊 Algorithm Details
+
+### Why Suffix Array + LCP over Suffix Tree?
+
+We chose **Suffix Array + LCP** over implementing Ukkonen's Suffix Tree for the following reasons:
 
 1. **Simpler Implementation**: Fewer edge cases, easier to verify correctness
-2. **Better Memory Efficiency**: 2N integers vs ~10N for suffix trees
-3. **Cache-Friendly**: Better locality of reference
+2. **Better Memory Efficiency**: ~2N integers vs ~10N for suffix trees
+3. **Cache-Friendly**: Better locality of reference in modern CPUs
 4. **Competitive Performance**: O(|P| log |T|) search is sufficient for genomic applications
 5. **Easier Integration**: Straightforward Python implementation without complex tree structures
-
-## Architecture
-
-### Core Components
-
-```
-suffix_indexer.py           # Main SuffixIndexer class
-├── build_index()           # O(N log N) SA construction + O(N) LCP
-├── search_exact()          # O(|P| log |T|) binary search
-└── find_longest_repeats()  # O(N) repeat discovery using LCP
-
-test_suffix_indexer.py      # Comprehensive unit tests (pytest compatible)
-benchmark_dna_datasets.py   # Performance benchmarking suite
-test_ecoli_genome.py        # E. coli genome testing script
-```
 
 ### Algorithms Implemented
 
 **Suffix Array Construction**: Prefix doubling (Manber-Myers)
 - Time: O(N log N)
 - Space: O(N)
-- Sorts suffixes by comparing prefixes of length 1, 2, 4, 8, ...
+- Sorts suffixes by comparing prefixes of length 1, 2, 4, 8, ..., N
 
 **LCP Array Construction**: Kasai's algorithm
 - Time: O(N)
@@ -60,41 +152,43 @@ test_ecoli_genome.py        # E. coli genome testing script
 - Space: O(k) for k repeats
 - Finds all substrings occurring ≥2 times with length ≥ min_length
 
-## Installation & Setup
+## 📁 Project Structure
 
-### Requirements
+```
+suffix-tree_array/
+├── src/
+│   ├── __init__.py
+│   ├── suffix_array.py        # Core algorithm implementation
+│   ├── data_loader.py          # FASTA parsing, dataset management
+│   ├── data_generator.py       # Synthetic sequence generation
+│   └── utils.py                # Utility functions
+├── experiments/
+│   ├── __init__.py
+│   ├── benchmarks.py           # Benchmarking framework
+│   └── experiments.py          # Experiment orchestration
+├── visualization/
+│   ├── __init__.py
+│   ├── visualizations.py       # Plot generation
+│   └── report_generator.py     # Report creation
+├── tests/
+│   ├── __init__.py
+│   └── test_suffix_array.py    # Comprehensive test suite
+├── datasets/                    # Downloaded datasets
+├── results/
+│   ├── plots/                   # Generated visualizations
+│   ├── tables/                  # Experiment data (JSON/CSV)
+│   └── reports/                 # Analysis reports
+├── config.yaml                  # Configuration
+├── requirements.txt             # Dependencies
+├── demo.py                      # Quick demonstration
+├── run_experiments.py           # Main experiment runner
+├── README.md                    # This file
+├── QUICKSTART.md                # Quick start guide
+└── IMPLEMENTATION_SUMMARY.md    # Technical details
 
-```bash
-# Core requirements (Python 3.8+)
-python3 -m pip install --upgrade pip
-
-# Optional: For E. coli testing and FASTA parsing
-pip install biopython
-
-# Optional: For running tests with pytest
-pip install pytest
 ```
 
-### Quick Start
-
-```bash
-# Clone or download the project
-cd dna_pattern_matching/
-
-# Run demo
-python suffix_indexer.py
-
-# Run comprehensive tests
-python test_suffix_indexer.py
-
-# Run benchmarks
-python benchmark_dna_datasets.py
-
-# Test on E. coli genome (download automatically)
-python test_ecoli_genome.py --download
-```
-
-## Usage Examples
+## 💡 Usage Examples
 
 ### Basic Pattern Matching
 
@@ -250,6 +344,44 @@ print(f"Memory: {memory_footprint / 1e6:.2f} MB")
 print(f"Search: {search_time:.6f}s")
 ```
 
+## 🧪 Running Experiments
+
+This implementation includes 8 comprehensive experiments:
+
+1. **Pattern Length Variation** - Performance vs pattern size
+2. **Text Size Scalability** - How algorithm scales with input size
+3. **Preprocessing Cost** - Construction time vs search time tradeoffs
+4. **Memory Footprint** - Index memory usage analysis
+5. **Comparison with Python re** - Benchmark against regex
+6. **Repeat Discovery** - Finding repeated substrings
+7. **E. coli Genome Analysis** - Real biological data testing
+8. **Pattern Complexity** - Different pattern types
+
+### Run all experiments:
+
+```bash
+python run_experiments.py
+```
+
+### Run specific experiments:
+
+```bash
+python run_experiments.py --experiments 1 5 7
+```
+
+Results are saved to `results/tables/` as JSON and CSV files.
+
+## 📈 Results
+
+Experiment results demonstrate:
+- **Linear search time** with text size for fixed pattern length
+- **Logarithmic scaling** of search with pattern length
+- **~2N memory footprint** (two integer arrays: SA + LCP)
+- **Competitive with regex** for short patterns, faster for repeated searches
+- **Efficient repeat discovery** using LCP array
+
+See `TESTING_RESULTS.md` (generated after running experiments) for detailed results.
+
 ## Biological Applications Tested
 
 ✓ **Transcription Factor Binding Sites**: TATA box, Pribnow box  
@@ -258,6 +390,35 @@ print(f"Search: {search_time:.6f}s")
 ✓ **Shine-Dalgarno Sequences**: Ribosome binding sites  
 ✓ **Tandem Repeats**: CAG repeats, microsatellites  
 ✓ **Chi Sites**: Recombination hotspots  
+
+## 📚 Documentation
+
+- **README.md** (this file) - Overview and quick reference
+- **QUICKSTART.md** - Step-by-step getting started guide
+- **IMPLEMENTATION_SUMMARY.md** - Technical implementation details
+- **TESTING_RESULTS.md** - Experimental results and analysis
+- **config.yaml** - Configuration parameters
+
+## 🤝 Contributing
+
+This implementation is part of the DNA Sequence Matching project. For consistency with team implementations:
+- Follow PEP 8 style guidelines
+- Add unit tests for new features
+- Update documentation
+- Benchmark against other algorithms
+
+## 👥 Team
+
+Part of the String Pattern Matching on DNA Sequences project by:
+- Yash More
+- Naman Singhal
+- Shreyash Lohare
+- Anagha Prajapati
+- Shrish Kadam
+
+## 📄 License
+
+Academic project - October/November 2025  
 
 ## Complexity Analysis
 
