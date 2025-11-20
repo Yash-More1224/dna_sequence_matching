@@ -1,0 +1,62 @@
+[
+  {
+    "dataset": "ecoli",
+    "num_patterns": 1,
+    "pattern_length": 50,
+    "text_length": 4641652,
+    "search_time_ms": 0.05168899951968342,
+    "avg_time_per_pattern_ms": 0.05168899951968342,
+    "total_matches": 1,
+    "patterns_per_sec": 19346.476219165263
+  },
+  {
+    "dataset": "ecoli",
+    "num_patterns": 5,
+    "pattern_length": 50,
+    "text_length": 4641652,
+    "search_time_ms": 0.17775500054995064,
+    "avg_time_per_pattern_ms": 0.03555100010999013,
+    "total_matches": 5,
+    "patterns_per_sec": 28128.603890358394
+  },
+  {
+    "dataset": "ecoli",
+    "num_patterns": 10,
+    "pattern_length": 50,
+    "text_length": 4641652,
+    "search_time_ms": 0.32964400088530965,
+    "avg_time_per_pattern_ms": 0.032964400088530965,
+    "total_matches": 10,
+    "patterns_per_sec": 30335.756067586433
+  },
+  {
+    "dataset": "ecoli",
+    "num_patterns": 20,
+    "pattern_length": 50,
+    "text_length": 4641652,
+    "search_time_ms": 0.5748809999204241,
+    "avg_time_per_pattern_ms": 0.028744049996021204,
+    "total_matches": 20,
+    "patterns_per_sec": 34789.80867826286
+  },
+  {
+    "dataset": "ecoli",
+    "num_patterns": 50,
+    "pattern_length": 50,
+    "text_length": 4641652,
+    "search_time_ms": 1.1993509997410001,
+    "avg_time_per_pattern_ms": 0.023987019994820002,
+    "total_matches": 59,
+    "patterns_per_sec": 41689.2135920156
+  },
+  {
+    "dataset": "ecoli",
+    "num_patterns": 100,
+    "pattern_length": 50,
+    "text_length": 4641652,
+    "search_time_ms": 2.259893999507767,
+    "avg_time_per_pattern_ms": 0.02259893999507767,
+    "total_matches": 102,
+    "patterns_per_sec": 44249.86305631204
+  }
+]

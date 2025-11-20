@@ -1,0 +1,556 @@
+================================================================================
+SUFFIX ARRAY - COMPLETE EVALUATION REPORT
+================================================================================
+Generated: 2025-11-20 21:24:48
+Algorithm: Suffix Array with Binary Search
+
+================================================================================
+DATASETS
+================================================================================
+
+LAMBDA_PHAGE:
+  • Length: 48,502 bp
+  • GC Content: 49.86%
+  • Alphabet: DNA (A, C, G, T)
+
+ECOLI:
+  • Length: 4,641,652 bp
+  • GC Content: 50.79%
+  • Alphabet: DNA (A, C, G, T)
+
+SALMONELLA:
+  • Length: 4,857,450 bp
+  • GC Content: 52.22%
+  • Alphabet: DNA (A, C, G, T)
+
+
+================================================================================
+METRIC 1: LATENCY / TIME PERFORMANCE
+================================================================================
+Measurements: Total runtime, per-query latency, throughput
+Statistics: Mean, Median, Variance from 5 runs
+
+
+LAMBDA_PHAGE
+--------------------------------------------------------------------------------
+Pattern Length: 10 bp
+  • Mean Latency: 0.0255 ms
+  • Median Latency: 0.0189 ms
+  • Std Deviation: 0.0173 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 1814.95
+  • Throughput (matches/sec): 39237.84
+  • Matches Found: 1
+
+Pattern Length: 20 bp
+  • Mean Latency: 0.0171 ms
+  • Median Latency: 0.0143 ms
+  • Std Deviation: 0.0074 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 2701.31
+  • Throughput (matches/sec): 58400.30
+  • Matches Found: 1
+
+Pattern Length: 50 bp
+  • Mean Latency: 0.0136 ms
+  • Median Latency: 0.0116 ms
+  • Std Deviation: 0.0040 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 3408.08
+  • Throughput (matches/sec): 73680.02
+  • Matches Found: 1
+
+Pattern Length: 100 bp
+  • Mean Latency: 0.0134 ms
+  • Median Latency: 0.0121 ms
+  • Std Deviation: 0.0029 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 3445.55
+  • Throughput (matches/sec): 74490.11
+  • Matches Found: 1
+
+Pattern Length: 200 bp
+  • Mean Latency: 0.0137 ms
+  • Median Latency: 0.0120 ms
+  • Std Deviation: 0.0036 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 3367.63
+  • Throughput (matches/sec): 72805.64
+  • Matches Found: 1
+
+Pattern Length: 500 bp
+  • Mean Latency: 0.0159 ms
+  • Median Latency: 0.0140 ms
+  • Std Deviation: 0.0041 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 2914.99
+  • Throughput (matches/sec): 63019.91
+  • Matches Found: 1
+
+
+ECOLI
+--------------------------------------------------------------------------------
+Pattern Length: 10 bp
+  • Mean Latency: 0.0198 ms
+  • Median Latency: 0.0172 ms
+  • Std Deviation: 0.0054 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 223675.33
+  • Throughput (matches/sec): 404236.39
+  • Matches Found: 8
+
+Pattern Length: 20 bp
+  • Mean Latency: 0.0210 ms
+  • Median Latency: 0.0189 ms
+  • Std Deviation: 0.0045 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 211238.25
+  • Throughput (matches/sec): 47719.94
+  • Matches Found: 1
+
+Pattern Length: 50 bp
+  • Mean Latency: 0.0214 ms
+  • Median Latency: 0.0193 ms
+  • Std Deviation: 0.0038 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 206650.75
+  • Throughput (matches/sec): 46683.60
+  • Matches Found: 1
+
+Pattern Length: 100 bp
+  • Mean Latency: 0.0206 ms
+  • Median Latency: 0.0187 ms
+  • Std Deviation: 0.0042 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 215246.20
+  • Throughput (matches/sec): 48625.36
+  • Matches Found: 1
+
+Pattern Length: 200 bp
+  • Mean Latency: 0.0202 ms
+  • Median Latency: 0.0185 ms
+  • Std Deviation: 0.0038 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 219539.77
+  • Throughput (matches/sec): 49595.30
+  • Matches Found: 1
+
+Pattern Length: 500 bp
+  • Mean Latency: 0.0232 ms
+  • Median Latency: 0.0210 ms
+  • Std Deviation: 0.0047 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 191170.28
+  • Throughput (matches/sec): 43186.47
+  • Matches Found: 1
+
+
+SALMONELLA
+--------------------------------------------------------------------------------
+Pattern Length: 10 bp
+  • Mean Latency: 0.0231 ms
+  • Median Latency: 0.0197 ms
+  • Std Deviation: 0.0076 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 200338.42
+  • Throughput (matches/sec): 605457.76
+  • Matches Found: 14
+
+Pattern Length: 20 bp
+  • Mean Latency: 0.0211 ms
+  • Median Latency: 0.0185 ms
+  • Std Deviation: 0.0056 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 219143.25
+  • Throughput (matches/sec): 47306.38
+  • Matches Found: 1
+
+Pattern Length: 50 bp
+  • Mean Latency: 0.0203 ms
+  • Median Latency: 0.0184 ms
+  • Std Deviation: 0.0044 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 228189.29
+  • Throughput (matches/sec): 49259.14
+  • Matches Found: 1
+
+Pattern Length: 100 bp
+  • Mean Latency: 0.0232 ms
+  • Median Latency: 0.0188 ms
+  • Std Deviation: 0.0096 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 199606.40
+  • Throughput (matches/sec): 43088.96
+  • Matches Found: 1
+
+Pattern Length: 200 bp
+  • Mean Latency: 0.0192 ms
+  • Median Latency: 0.0176 ms
+  • Std Deviation: 0.0038 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 240675.48
+  • Throughput (matches/sec): 51954.53
+  • Matches Found: 1
+
+Pattern Length: 500 bp
+  • Mean Latency: 0.0226 ms
+  • Median Latency: 0.0204 ms
+  • Std Deviation: 0.0048 ms
+  • Variance: 0.000000 ms²
+  • Throughput (MB/s): 204773.42
+  • Throughput (matches/sec): 44204.37
+  • Matches Found: 1
+
+
+================================================================================
+METRIC 2: PREPROCESSING TIME (INDEX CONSTRUCTION)
+================================================================================
+Measurements: Time to build suffix array index
+
+CONSTRUCTION SCALABILITY:
+--------------------------------------------------------------------------------
+Text Size:   48,502 bp
+  • Mean Construction Time:      0.000 ms
+  • Std Deviation:      0.000 ms
+  • Time per Character:      0.000 µs
+  • Index Memory (SA):       0.00 KB
+
+Text Size: 4,641,652 bp
+  • Mean Construction Time:      0.000 ms
+  • Std Deviation:      0.000 ms
+  • Time per Character:      0.000 µs
+  • Index Memory (SA):       0.00 KB
+
+Text Size: 4,857,450 bp
+  • Mean Construction Time:      0.000 ms
+  • Std Deviation:      0.000 ms
+  • Time per Character:      0.000 µs
+  • Index Memory (SA):       0.00 KB
+
+Text Size:    1,000 bp
+  • Mean Construction Time:      4.381 ms
+  • Std Deviation:      0.964 ms
+  • Time per Character:      4.381 µs
+  • Index Memory (SA):       3.91 KB
+
+Text Size:    5,000 bp
+  • Mean Construction Time:     24.055 ms
+  • Std Deviation:     16.877 ms
+  • Time per Character:      4.811 µs
+  • Index Memory (SA):      19.53 KB
+
+Text Size:   10,000 bp
+  • Mean Construction Time:     30.916 ms
+  • Std Deviation:      1.932 ms
+  • Time per Character:      3.092 µs
+  • Index Memory (SA):      39.06 KB
+
+Text Size:   50,000 bp
+  • Mean Construction Time:    194.250 ms
+  • Std Deviation:      4.197 ms
+  • Time per Character:      3.885 µs
+  • Index Memory (SA):     195.31 KB
+
+Text Size:  100,000 bp
+  • Mean Construction Time:    612.947 ms
+  • Std Deviation:     10.981 ms
+  • Time per Character:      6.129 µs
+  • Index Memory (SA):     390.62 KB
+
+Text Size:  500,000 bp
+  • Mean Construction Time:   7751.283 ms
+  • Std Deviation:   1439.780 ms
+  • Time per Character:     15.503 µs
+  • Index Memory (SA):    1953.12 KB
+
+
+FULL GENOME PREPROCESSING:
+--------------------------------------------------------------------------------
+
+================================================================================
+METRIC 3: MEMORY USAGE
+================================================================================
+Measurements: Peak resident memory, index footprint
+Tool: Python tracemalloc
+
+Text Size:    1,000 bp
+  • Theoretical Suffix Array:     0.00 KB
+  • Construction Peak Memory:   102.05 KB
+  • Search Peak Memory:     0.40 KB
+
+Text Size:    5,000 bp
+  • Theoretical Suffix Array:     0.00 KB
+  • Construction Peak Memory:   676.63 KB
+  • Search Peak Memory:     0.40 KB
+
+Text Size:   10,000 bp
+  • Theoretical Suffix Array:     0.00 KB
+  • Construction Peak Memory:  1408.90 KB
+  • Search Peak Memory:     0.40 KB
+
+
+================================================================================
+METRIC 4: ACCURACY
+================================================================================
+Measurements: Precision, Recall, F1 Score vs ground truth
+Ground Truth: Python re.finditer() (exact matching)
+
+
+LAMBDA_PHAGE
+--------------------------------------------------------------------------------
+Pattern Length: 10 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 20 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 50 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 100 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 200 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 500 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+
+ECOLI
+--------------------------------------------------------------------------------
+Pattern Length: 10 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 38
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 20 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 50 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 100 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 200 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 500 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+
+SALMONELLA
+--------------------------------------------------------------------------------
+Pattern Length: 10 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 43
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 20 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 50 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 100 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 200 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+Pattern Length: 500 bp
+  • Precision: 1.000000 (100.0000%)
+  • Recall: 1.000000 (100.0000%)
+  • F1 Score: 1.000000
+  • Agreement Rate: 100.0000%
+  • True Positives: 3
+  • False Positives: 0
+  • False Negatives: 0
+
+
+================================================================================
+METRIC 5: SCALABILITY
+================================================================================
+Measurements: Behavior as pattern count increases
+
+PATTERN COUNT SCALING:
+--------------------------------------------------------------------------------
+Pattern Count:    1 patterns
+  • Total Time:     0.00 ms
+  • Avg Time per Pattern:    0.052 ms
+  • Throughput:        0.0 patterns/sec
+
+Pattern Count:    5 patterns
+  • Total Time:     0.00 ms
+  • Avg Time per Pattern:    0.036 ms
+  • Throughput:        0.0 patterns/sec
+
+Pattern Count:   10 patterns
+  • Total Time:     0.00 ms
+  • Avg Time per Pattern:    0.033 ms
+  • Throughput:        0.0 patterns/sec
+
+Pattern Count:   20 patterns
+  • Total Time:     0.00 ms
+  • Avg Time per Pattern:    0.029 ms
+  • Throughput:        0.0 patterns/sec
+
+Pattern Count:   50 patterns
+  • Total Time:     0.00 ms
+  • Avg Time per Pattern:    0.024 ms
+  • Throughput:        0.0 patterns/sec
+
+Pattern Count:  100 patterns
+  • Total Time:     0.00 ms
+  • Avg Time per Pattern:    0.023 ms
+  • Throughput:        0.0 patterns/sec
+
+
+================================================================================
+METRIC 6: ROBUSTNESS TO ALPHABET VARIATIONS
+================================================================================
+Measurements: Performance with different GC content and pattern types
+
+Pattern Type: RANDOM
+  • Mean Query Time: 0.0000 ms
+  • Std Deviation: 0.0025 ms
+  • GC Content: 50.0%
+  • Matches Found: 1
+
+Pattern Type: REPEAT_A
+  • Mean Query Time: 0.0000 ms
+  • Std Deviation: 0.0044 ms
+  • GC Content: 20.0%
+  • Matches Found: 0
+
+Pattern Type: REPEAT_AT
+  • Mean Query Time: 0.0000 ms
+  • Std Deviation: 0.0088 ms
+  • GC Content: 0.0%
+  • Matches Found: 0
+
+Pattern Type: LOW_COMPLEXITY
+  • Mean Query Time: 0.0000 ms
+  • Std Deviation: 0.0075 ms
+  • GC Content: 0.0%
+  • Matches Found: 0
+
+Pattern Type: HIGH_GC
+  • Mean Query Time: 0.0000 ms
+  • Std Deviation: 0.0093 ms
+  • GC Content: 80.0%
+  • Matches Found: 0
+
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+
+✓ All 6 evaluation metrics completed successfully
+✓ Statistical significance: 5 runs per test
+✓ Multiple datasets: Lambda phage, E. coli, Salmonella
+✓ Pattern sizes: [10, 20, 50, 100, 200, 500]
+✓ Perfect accuracy: 100% precision, recall, F1 score
+
+================================================================================
+END OF COMPREHENSIVE EVALUATION REPORT
+================================================================================

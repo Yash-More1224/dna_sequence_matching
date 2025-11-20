@@ -4,9 +4,9 @@
     "pattern_type": "random",
     "description": "Random from genome",
     "pattern_length": 100,
-    "gc_content": 0.46,
-    "mean_search_time_ms": 0.016540799697395414,
-    "std_dev_ms": 0.004333061014559872,
+    "gc_content": 0.5,
+    "mean_search_time_ms": 0.017900999591802247,
+    "std_dev_ms": 0.002500563734940785,
     "num_matches": 1
   },
   {
@@ -15,8 +15,8 @@
     "description": "High A content (80%)",
     "pattern_length": 100,
     "gc_content": 0.2,
-    "mean_search_time_ms": 0.014485400606645271,
-    "std_dev_ms": 0.004415750820776817,
+    "mean_search_time_ms": 0.022482599888462573,
+    "std_dev_ms": 0.004377595463918752,
     "num_matches": 0
   },
   {
@@ -25,8 +25,8 @@
     "description": "Alternating AT",
     "pattern_length": 100,
     "gc_content": 0.0,
-    "mean_search_time_ms": 0.014898599329171702,
-    "std_dev_ms": 0.004415259973661552,
+    "mean_search_time_ms": 0.029743600316578522,
+    "std_dev_ms": 0.008800517764673815,
     "num_matches": 0
   },
   {
@@ -35,8 +35,8 @@
     "description": "Low complexity (AAATAAAT...)",
     "pattern_length": 100,
     "gc_content": 0.0,
-    "mean_search_time_ms": 0.015069600340211764,
-    "std_dev_ms": 0.004064675056956065,
+    "mean_search_time_ms": 0.02276900013384875,
+    "std_dev_ms": 0.007515627364471109,
     "num_matches": 0
   },
   {
@@ -45,8 +45,8 @@
     "description": "High GC content (80%)",
     "pattern_length": 100,
     "gc_content": 0.8,
-    "mean_search_time_ms": 0.014519799879053608,
-    "std_dev_ms": 0.0038589728497270023,
+    "mean_search_time_ms": 0.022338399867294356,
+    "std_dev_ms": 0.009256476031081482,
     "num_matches": 0
   }
 ]

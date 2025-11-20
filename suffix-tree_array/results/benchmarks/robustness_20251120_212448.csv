@@ -1,0 +1,6 @@
+dataset,description,gc_content,mean_search_time_ms,num_matches,pattern_length,pattern_type,std_dev_ms
+ecoli,Random from genome,0.5,0.017900999591802247,1,100,random,0.002500563734940785
+ecoli,High A content (80%),0.2,0.022482599888462573,0,100,repeat_A,0.004377595463918752
+ecoli,Alternating AT,0.0,0.029743600316578522,0,100,repeat_AT,0.008800517764673815
+ecoli,Low complexity (AAATAAAT...),0.0,0.02276900013384875,0,100,low_complexity,0.007515627364471109
+ecoli,High GC content (80%),0.8,0.022338399867294356,0,100,high_GC,0.009256476031081482
