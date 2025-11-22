@@ -1,6 +1,8 @@
 """Utility functions for Boyer-Moore implementation."""
 
-import time
+
+__all__ = []import time
+
 import tracemalloc
 from typing import Callable, Dict, Any, List
 from functools import wraps
