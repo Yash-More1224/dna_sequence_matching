@@ -1,0 +1,625 @@
+{
+  "metadata": {
+    "timestamp": "2025-11-27T20:58:28.533986",
+    "num_runs": 5,
+    "description": "Comparison of Shift-Or/Bitap vs Python re module"
+  },
+  "comparisons": [
+    {
+      "dataset": "E. coli K-12",
+      "pattern": "TTCCA",
+      "pattern_length": 5,
+      "text_length": 100000,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.012199991033412516,
+        "search_time_ms": 114.67669999983627,
+        "search_time_median_ms": 115.08040000626352,
+        "search_time_std_ms": 1.722398121677031,
+        "num_matches": 130,
+        "matches": [
+          1161,
+          1262,
+          1420,
+          2000,
+          2049,
+          2823,
+          3038,
+          4027,
+          6069,
+          6966
+        ],
+        "throughput_bps": 872016.7217939021
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.000600004568696022,
+        "search_time_ms": 0.20793999719899148,
+        "search_time_median_ms": 0.20789999689441174,
+        "search_time_std_ms": 0.009144564259617544,
+        "num_matches": 130,
+        "matches": [
+          1161,
+          1262,
+          1420,
+          2000,
+          2049,
+          2823,
+          3038,
+          4027,
+          6069,
+          6966
+        ],
+        "throughput_bps": 480907960.69552416
+      },
+      "memory": {
+        "shift_or_peak_kb": 142.5302734375,
+        "regex_peak_kb": 5.3623046875
+      },
+      "correctness": true,
+      "speedup": 0.0018132715468729772,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "E. coli K-12",
+      "pattern": "TTCCAGCCAG",
+      "pattern_length": 10,
+      "text_length": 100000,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.022200008970685303,
+        "search_time_ms": 110.4836400016211,
+        "search_time_median_ms": 112.50570000265725,
+        "search_time_std_ms": 7.426500075521715,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 905111.3811830668
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.000300002284348011,
+        "search_time_ms": 0.19754000240936875,
+        "search_time_median_ms": 0.2018000086536631,
+        "search_time_std_ms": 0.011096305807530927,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 506226580.84597296
+      },
+      "memory": {
+        "shift_or_peak_kb": 137.54296875,
+        "regex_peak_kb": 0.6201171875
+      },
+      "correctness": true,
+      "speedup": 0.001787957044196501,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "E. coli K-12",
+      "pattern": "TTCCAGCCAGGCAGT",
+      "pattern_length": 15,
+      "text_length": 100000,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.014600009308196604,
+        "search_time_ms": 104.29259999946225,
+        "search_time_median_ms": 103.22530000121333,
+        "search_time_std_ms": 3.141468920130521,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 958840.7998315855
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.000500003807246685,
+        "search_time_ms": 0.19465999794192612,
+        "search_time_median_ms": 0.20250001398380846,
+        "search_time_std_ms": 0.015340568359141177,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 513716228.58967406
+      },
+      "memory": {
+        "shift_or_peak_kb": 137.4931640625,
+        "regex_peak_kb": 0.6201171875
+      },
+      "correctness": true,
+      "speedup": 0.0018664794812185122,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "E. coli K-12",
+      "pattern": "TTCCAGCCAGGCAGTGGCGG",
+      "pattern_length": 20,
+      "text_length": 100000,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.012499993317760527,
+        "search_time_ms": 104.49910000315867,
+        "search_time_median_ms": 103.44210000766907,
+        "search_time_std_ms": 1.984815533913346,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 956946.0406546785
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.000500003807246685,
+        "search_time_ms": 0.19508000114001334,
+        "search_time_median_ms": 0.19489999976940453,
+        "search_time_std_ms": 0.01663466421815751,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 512610208.1998028
+      },
+      "memory": {
+        "shift_or_peak_kb": 137.443359375,
+        "regex_peak_kb": 0.6201171875
+      },
+      "correctness": true,
+      "speedup": 0.0018668103470184593,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "E. coli K-12",
+      "pattern": "TTCCAGCCAGGCAGTGGCGGATCAATATGC",
+      "pattern_length": 30,
+      "text_length": 100000,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.015300000086426735,
+        "search_time_ms": 104.71270000271033,
+        "search_time_median_ms": 104.2310000048019,
+        "search_time_std_ms": 0.9929846823440623,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 954993.9978380048
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.000400003045797348,
+        "search_time_ms": 0.18839999684132636,
+        "search_time_median_ms": 0.18799999088514596,
+        "search_time_std_ms": 0.012294307941154301,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 530785571.5317325
+      },
+      "memory": {
+        "shift_or_peak_kb": 137.45703125,
+        "regex_peak_kb": 0.6201171875
+      },
+      "correctness": true,
+      "speedup": 0.0017992086617616572,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "Lambda Phage",
+      "pattern": "CGCCA",
+      "pattern_length": 5,
+      "text_length": 48502,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.0044000043999403715,
+        "search_time_ms": 28.364179996424355,
+        "search_time_median_ms": 27.87989999342244,
+        "search_time_std_ms": 0.9468082076670001,
+        "num_matches": 72,
+        "matches": [
+          445,
+          1350,
+          1553,
+          2000,
+          3044,
+          3050,
+          3647,
+          3671,
+          5143,
+          5430
+        ],
+        "throughput_bps": 1709973.6359772875
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.000400003045797348,
+        "search_time_ms": 0.09064000332728028,
+        "search_time_median_ms": 0.08349999552592635,
+        "search_time_std_ms": 0.024724744859844782,
+        "num_matches": 72,
+        "matches": [
+          445,
+          1350,
+          1553,
+          2000,
+          3044,
+          3050,
+          3647,
+          3671,
+          5143,
+          5430
+        ],
+        "throughput_bps": 535105893.86090815
+      },
+      "memory": {
+        "shift_or_peak_kb": 69.6337890625,
+        "regex_peak_kb": 3.2138671875
+      },
+      "correctness": true,
+      "speedup": 0.003195579894737184,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "Lambda Phage",
+      "pattern": "CGCCACGACG",
+      "pattern_length": 10,
+      "text_length": 48502,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.017099999240599573,
+        "search_time_ms": 28.94306000089273,
+        "search_time_median_ms": 28.52760000678245,
+        "search_time_std_ms": 0.627500466534559,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 1675773.052279337
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.000400003045797348,
+        "search_time_ms": 0.07733999518677592,
+        "search_time_median_ms": 0.07819999882485718,
+        "search_time_std_ms": 0.033581587481939124,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 627127010.8417743
+      },
+      "memory": {
+        "shift_or_peak_kb": 67.013671875,
+        "regex_peak_kb": 0.6201171875
+      },
+      "correctness": true,
+      "speedup": 0.002672143000235304,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "Lambda Phage",
+      "pattern": "CGCCACGACGATGAA",
+      "pattern_length": 15,
+      "text_length": 48502,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.01649999467190355,
+        "search_time_ms": 28.90991999884136,
+        "search_time_median_ms": 28.31769999465905,
+        "search_time_std_ms": 0.8918066008154123,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 1677694.023433612
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.000400003045797348,
+        "search_time_ms": 0.0761199975386262,
+        "search_time_median_ms": 0.07809999806340784,
+        "search_time_std_ms": 0.03258537775941021,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 637178160.3827329
+      },
+      "memory": {
+        "shift_or_peak_kb": 67.0302734375,
+        "regex_peak_kb": 0.6201171875
+      },
+      "correctness": true,
+      "speedup": 0.0026330061633403653,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "Lambda Phage",
+      "pattern": "CGCCACGACGATGAACAGAC",
+      "pattern_length": 20,
+      "text_length": 48502,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.016400008462369442,
+        "search_time_ms": 31.12383999978192,
+        "search_time_median_ms": 30.478600005153567,
+        "search_time_std_ms": 2.2420657169155453,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 1558355.2672273037
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.000400003045797348,
+        "search_time_ms": 0.07681999995838851,
+        "search_time_median_ms": 0.07809999806340784,
+        "search_time_std_ms": 0.03263582641964414,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 631372038.873631
+      },
+      "memory": {
+        "shift_or_peak_kb": 67.03515625,
+        "regex_peak_kb": 0.6201171875
+      },
+      "correctness": true,
+      "speedup": 0.0024682044361790437,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "Lambda Phage",
+      "pattern": "CGCCACGACGATGAACAGACGCTGCTGCGT",
+      "pattern_length": 30,
+      "text_length": 48502,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.019800005247816443,
+        "search_time_ms": 28.78964000265114,
+        "search_time_median_ms": 28.52849999908358,
+        "search_time_std_ms": 0.6218387175432448,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 1684703.24726303
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.000500003807246685,
+        "search_time_ms": 0.0790199963375926,
+        "search_time_median_ms": 0.08450000314041972,
+        "search_time_std_ms": 0.03329604915374042,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 613794004.6565895
+      },
+      "memory": {
+        "shift_or_peak_kb": 67.044921875,
+        "regex_peak_kb": 0.6201171875
+      },
+      "correctness": true,
+      "speedup": 0.0027447372155510077,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "Salmonella",
+      "pattern": "CTCCA",
+      "pattern_length": 5,
+      "text_length": 100000,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.018400009139440954,
+        "search_time_ms": 101.17584000399802,
+        "search_time_median_ms": 101.14230000181124,
+        "search_time_std_ms": 0.2906699094459094,
+        "num_matches": 61,
+        "matches": [
+          2000,
+          5479,
+          5497,
+          9771,
+          10448,
+          17342,
+          18420,
+          20028,
+          23577,
+          25834
+        ],
+        "throughput_bps": 988378.2531091261
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.000500003807246685,
+        "search_time_ms": 0.2082399994833395,
+        "search_time_median_ms": 0.21090000518597662,
+        "search_time_std_ms": 0.01255519457269376,
+        "num_matches": 61,
+        "matches": [
+          2000,
+          5479,
+          5497,
+          9771,
+          10448,
+          17342,
+          18420,
+          20028,
+          23577,
+          25834
+        ],
+        "throughput_bps": 480215137.57255185
+      },
+      "memory": {
+        "shift_or_peak_kb": 139.6083984375,
+        "regex_peak_kb": 2.8193359375
+      },
+      "correctness": true,
+      "speedup": 0.002058198869167884,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "Salmonella",
+      "pattern": "CTCCAGTCAG",
+      "pattern_length": 10,
+      "text_length": 100000,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.014000004739500582,
+        "search_time_ms": 102.29779999936,
+        "search_time_median_ms": 102.30939999746624,
+        "search_time_std_ms": 0.32162065155195646,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 977538.1288808326
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.00029998773243278265,
+        "search_time_ms": 0.2027399983489886,
+        "search_time_median_ms": 0.20249999943189323,
+        "search_time_std_ms": 0.011259566690781379,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 493242580.7159373
+      },
+      "memory": {
+        "shift_or_peak_kb": 137.42578125,
+        "regex_peak_kb": 0.6201171875
+      },
+      "correctness": true,
+      "speedup": 0.0019818607863537336,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "Salmonella",
+      "pattern": "CTCCAGTCAGGCGGT",
+      "pattern_length": 15,
+      "text_length": 100000,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.04949999856762588,
+        "search_time_ms": 102.92715999530628,
+        "search_time_median_ms": 102.61869999521878,
+        "search_time_std_ms": 0.7566881363581948,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 971560.8591994594
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.00039998849388211966,
+        "search_time_ms": 0.2059199963696301,
+        "search_time_median_ms": 0.20759999461006373,
+        "search_time_std_ms": 0.012703815314481677,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 485625494.1870638
+      },
+      "memory": {
+        "shift_or_peak_kb": 137.4306640625,
+        "regex_peak_kb": 0.6201171875
+      },
+      "correctness": true,
+      "speedup": 0.002000638085992274,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "Salmonella",
+      "pattern": "CTCCAGTCAGGCGGTGGCCG",
+      "pattern_length": 20,
+      "text_length": 100000,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.021400002879090607,
+        "search_time_ms": 102.83354000130203,
+        "search_time_median_ms": 102.72439999971539,
+        "search_time_std_ms": 0.6558824238704623,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 972445.3714102797
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.000500003807246685,
+        "search_time_ms": 0.20560000266414136,
+        "search_time_median_ms": 0.20950000907760113,
+        "search_time_std_ms": 0.013952061857692237,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 486381316.65472484
+      },
+      "memory": {
+        "shift_or_peak_kb": 137.435546875,
+        "regex_peak_kb": 0.6201171875
+      },
+      "correctness": true,
+      "speedup": 0.001999347709526854,
+      "winner": "Python re"
+    },
+    {
+      "dataset": "Salmonella",
+      "pattern": "CTCCAGTCAGGCGGTGGCCGACCAGTATGC",
+      "pattern_length": 30,
+      "text_length": 100000,
+      "shift_or": {
+        "algorithm": "Shift-Or/Bitap",
+        "preprocess_time_ms": 0.01930000144056976,
+        "search_time_ms": 103.14977999951225,
+        "search_time_median_ms": 103.20709999359678,
+        "search_time_std_ms": 0.3576850242690269,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 969464.0163117445
+      },
+      "regex": {
+        "algorithm": "Python re",
+        "preprocess_time_ms": 0.00039998849388211966,
+        "search_time_ms": 0.20620000432245433,
+        "search_time_median_ms": 0.20670000230893493,
+        "search_time_std_ms": 0.011338644679436814,
+        "num_matches": 1,
+        "matches": [
+          2000
+        ],
+        "throughput_bps": 484966042.21026397
+      },
+      "memory": {
+        "shift_or_peak_kb": 137.45703125,
+        "regex_peak_kb": 0.6201171875
+      },
+      "correctness": true,
+      "speedup": 0.0019990348435394564,
+      "winner": "Python re"
+    }
+  ],
+  "summary": {
+    "total_tests": 15,
+    "shift_or_wins": 0,
+    "regex_wins": 15,
+    "shift_or_win_rate": 0.0,
+    "average_speedup": 0.0021924318723794143
+  }
+}

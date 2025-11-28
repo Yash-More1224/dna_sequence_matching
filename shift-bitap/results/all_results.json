@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "timestamp": "2025-11-27T20:15:49.021566",
+    "algorithm": "Shift-Or / Bitap",
+    "evaluation_criteria": [
+      "Latency/Time - per-query latency and throughput",
+      "Preprocessing Time - bitmask creation time",
+      "Memory Usage - constant space algorithm",
+      "Accuracy - exact and approximate matching",
+      "Scalability - linear time with text length",
+      "Robustness - performance with mutations"
+    ]
+  },
+  "datasets": {
+    "ecoli_k12_mg1655": {
+      "dataset": "ecoli_k12_mg1655",
+      "size": 100000,
+      "tests": [
+        {
+          "pattern_length": 5,
+          "preprocessing_time_ms": 0.020100007532164454,
+          "search_time_ms": 113.21739999887843,
+          "num_matches": 140
+        },
+        {
+          "pattern_length": 10,
+          "preprocessing_time_ms": 0.01679999695625156,
+          "search_time_ms": 114.12779999955092,
+          "num_matches": 1
+        },
+        {
+          "pattern_length": 15,
+          "preprocessing_time_ms": 0.013800003216601908,
+          "search_time_ms": 113.21690000477247,
+          "num_matches": 1
+        },
+        {
+          "pattern_length": 20,
+          "preprocessing_time_ms": 0.014699995517730713,
+          "search_time_ms": 103.92819999833591,
+          "num_matches": 1
+        },
+        {
+          "pattern_length": 30,
+          "preprocessing_time_ms": 0.0168999977177009,
+          "search_time_ms": 103.3874666657842,
+          "num_matches": 1
+        },
+        {
+          "type": "approximate",
+          "max_errors": 0,
+          "search_time_ms": 120.37820000841748,
+          "num_matches": 1
+        },
+        {
+          "type": "approximate",
+          "max_errors": 1,
+          "search_time_ms": 579.099499998847,
+          "num_matches": 99981
+        },
+        {
+          "type": "approximate",
+          "max_errors": 2,
+          "search_time_ms": 1029.1901000018697,
+          "num_matches": 99981
+        }
+      ]
+    },
+    "lambda_phage": {
+      "dataset": "lambda_phage",
+      "size": 48502,
+      "tests": [
+        {
+          "pattern_length": 5,
+          "preprocessing_time_ms": 0.01170000177808106,
+          "search_time_ms": 28.219733329024166,
+          "num_matches": 92
+        },
+        {
+          "pattern_length": 10,
+          "preprocessing_time_ms": 0.00960000033956021,
+          "search_time_ms": 29.584033332260635,
+          "num_matches": 1
+        },
+        {
+          "pattern_length": 15,
+          "preprocessing_time_ms": 0.013900003978051245,
+          "search_time_ms": 29.08273333256754,
+          "num_matches": 1
+        },
+        {
+          "pattern_length": 20,
+          "preprocessing_time_ms": 0.01720000000204891,
+          "search_time_ms": 29.24886666490541,
+          "num_matches": 1
+        },
+        {
+          "pattern_length": 30,
+          "preprocessing_time_ms": 0.0168999977177009,
+          "search_time_ms": 29.022766665245097,
+          "num_matches": 1
+        },
+        {
+          "type": "approximate",
+          "max_errors": 0,
+          "search_time_ms": 36.80770000210032,
+          "num_matches": 1
+        },
+        {
+          "type": "approximate",
+          "max_errors": 1,
+          "search_time_ms": 163.71179999259766,
+          "num_matches": 48483
+        },
+        {
+          "type": "approximate",
+          "max_errors": 2,
+          "search_time_ms": 272.150300006615,
+          "num_matches": 48483
+        }
+      ]
+    },
+    "salmonella_typhimurium": {
+      "dataset": "salmonella_typhimurium",
+      "size": 100000,
+      "tests": [
+        {
+          "pattern_length": 5,
+          "preprocessing_time_ms": 0.012200005585327744,
+          "search_time_ms": 102.72263332444709,
+          "num_matches": 120
+        },
+        {
+          "pattern_length": 10,
+          "preprocessing_time_ms": 0.012999997125007212,
+          "search_time_ms": 103.32363333145622,
+          "num_matches": 2
+        },
+        {
+          "pattern_length": 15,
+          "preprocessing_time_ms": 0.01789999078027904,
+          "search_time_ms": 104.19369999726769,
+          "num_matches": 1
+        },
+        {
+          "pattern_length": 20,
+          "preprocessing_time_ms": 0.020000006770715117,
+          "search_time_ms": 103.52679999778047,
+          "num_matches": 1
+        },
+        {
+          "pattern_length": 30,
+          "preprocessing_time_ms": 0.021500003640539944,
+          "search_time_ms": 103.5081666680829,
+          "num_matches": 1
+        },
+        {
+          "type": "approximate",
+          "max_errors": 0,
+          "search_time_ms": 121.82339999708347,
+          "num_matches": 1
+        },
+        {
+          "type": "approximate",
+          "max_errors": 1,
+          "search_time_ms": 576.394599993364,
+          "num_matches": 99981
+        },
+        {
+          "type": "approximate",
+          "max_errors": 2,
+          "search_time_ms": 1020.2821999992011,
+          "num_matches": 99981
+        }
+      ]
+    }
+  }
+}

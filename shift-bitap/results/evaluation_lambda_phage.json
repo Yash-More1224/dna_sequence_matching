@@ -1,0 +1,60 @@
+{
+  "dataset_info": {
+    "name": "lambda_phage",
+    "size": 48502,
+    "description": "Lambda Phage complete genome"
+  },
+  "timestamp": "2025-11-27T20:15:49.021566",
+  "algorithm": "Shift-Or / Bitap",
+  "evaluation_results": {
+    "exact_matching_scalability": [
+      {
+        "pattern_length": 5,
+        "preprocessing_time_ms": 0.01170000177808106,
+        "search_time_ms": 28.219733329024166,
+        "num_matches": 92
+      },
+      {
+        "pattern_length": 10,
+        "preprocessing_time_ms": 0.00960000033956021,
+        "search_time_ms": 29.584033332260635,
+        "num_matches": 1
+      },
+      {
+        "pattern_length": 15,
+        "preprocessing_time_ms": 0.013900003978051245,
+        "search_time_ms": 29.08273333256754,
+        "num_matches": 1
+      },
+      {
+        "pattern_length": 20,
+        "preprocessing_time_ms": 0.01720000000204891,
+        "search_time_ms": 29.24886666490541,
+        "num_matches": 1
+      },
+      {
+        "pattern_length": 30,
+        "preprocessing_time_ms": 0.0168999977177009,
+        "search_time_ms": 29.022766665245097,
+        "num_matches": 1
+      }
+    ],
+    "approximate_matching": [
+      {
+        "max_errors": 0,
+        "search_time_ms": 36.80770000210032,
+        "num_matches": 1
+      },
+      {
+        "max_errors": 1,
+        "search_time_ms": 163.71179999259766,
+        "num_matches": 48483
+      },
+      {
+        "max_errors": 2,
+        "search_time_ms": 272.150300006615,
+        "num_matches": 48483
+      }
+    ]
+  }
+}

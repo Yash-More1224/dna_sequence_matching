@@ -1,0 +1,60 @@
+{
+  "dataset_info": {
+    "name": "salmonella_typhimurium",
+    "size": 100000,
+    "description": "Salmonella Typhimurium genome subset"
+  },
+  "timestamp": "2025-11-27T20:15:49.021566",
+  "algorithm": "Shift-Or / Bitap",
+  "evaluation_results": {
+    "exact_matching_scalability": [
+      {
+        "pattern_length": 5,
+        "preprocessing_time_ms": 0.012200005585327744,
+        "search_time_ms": 102.72263332444709,
+        "num_matches": 120
+      },
+      {
+        "pattern_length": 10,
+        "preprocessing_time_ms": 0.012999997125007212,
+        "search_time_ms": 103.32363333145622,
+        "num_matches": 2
+      },
+      {
+        "pattern_length": 15,
+        "preprocessing_time_ms": 0.01789999078027904,
+        "search_time_ms": 104.19369999726769,
+        "num_matches": 1
+      },
+      {
+        "pattern_length": 20,
+        "preprocessing_time_ms": 0.020000006770715117,
+        "search_time_ms": 103.52679999778047,
+        "num_matches": 1
+      },
+      {
+        "pattern_length": 30,
+        "preprocessing_time_ms": 0.021500003640539944,
+        "search_time_ms": 103.5081666680829,
+        "num_matches": 1
+      }
+    ],
+    "approximate_matching": [
+      {
+        "max_errors": 0,
+        "search_time_ms": 121.82339999708347,
+        "num_matches": 1
+      },
+      {
+        "max_errors": 1,
+        "search_time_ms": 576.394599993364,
+        "num_matches": 99981
+      },
+      {
+        "max_errors": 2,
+        "search_time_ms": 1020.2821999992011,
+        "num_matches": 99981
+      }
+    ]
+  }
+}

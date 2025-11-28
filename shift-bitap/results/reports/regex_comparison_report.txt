@@ -1,0 +1,288 @@
+================================================================================
+SHIFT-OR/BITAP vs PYTHON re MODULE - DETAILED COMPARISON REPORT
+================================================================================
+
+Date: 2025-11-27T20:58:28.533986
+Number of runs per test: 5
+
+--------------------------------------------------------------------------------
+EXECUTIVE SUMMARY
+--------------------------------------------------------------------------------
+
+Total comparisons: 15
+Shift-Or/Bitap wins: 0 (0.0%)
+Python re wins: 15 (100.0%)
+Average speedup: 0.00x
+
+--------------------------------------------------------------------------------
+DETAILED RESULTS
+--------------------------------------------------------------------------------
+
+
+============================================================
+Dataset: E. coli K-12
+============================================================
+
+Pattern length: 5 bp
+  Shift-Or/Bitap:
+    - Search time: 114.677 ms
+    - Preprocessing: 0.0122 ms
+    - Throughput: 0.87 Mbp/s
+    - Matches: 130
+  Python re:
+    - Search time: 0.208 ms
+    - Preprocessing: 0.0006 ms
+    - Throughput: 480.91 Mbp/s
+    - Matches: 130
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+Pattern length: 10 bp
+  Shift-Or/Bitap:
+    - Search time: 110.484 ms
+    - Preprocessing: 0.0222 ms
+    - Throughput: 0.91 Mbp/s
+    - Matches: 1
+  Python re:
+    - Search time: 0.198 ms
+    - Preprocessing: 0.0003 ms
+    - Throughput: 506.23 Mbp/s
+    - Matches: 1
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+Pattern length: 15 bp
+  Shift-Or/Bitap:
+    - Search time: 104.293 ms
+    - Preprocessing: 0.0146 ms
+    - Throughput: 0.96 Mbp/s
+    - Matches: 1
+  Python re:
+    - Search time: 0.195 ms
+    - Preprocessing: 0.0005 ms
+    - Throughput: 513.72 Mbp/s
+    - Matches: 1
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+Pattern length: 20 bp
+  Shift-Or/Bitap:
+    - Search time: 104.499 ms
+    - Preprocessing: 0.0125 ms
+    - Throughput: 0.96 Mbp/s
+    - Matches: 1
+  Python re:
+    - Search time: 0.195 ms
+    - Preprocessing: 0.0005 ms
+    - Throughput: 512.61 Mbp/s
+    - Matches: 1
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+Pattern length: 30 bp
+  Shift-Or/Bitap:
+    - Search time: 104.713 ms
+    - Preprocessing: 0.0153 ms
+    - Throughput: 0.95 Mbp/s
+    - Matches: 1
+  Python re:
+    - Search time: 0.188 ms
+    - Preprocessing: 0.0004 ms
+    - Throughput: 530.79 Mbp/s
+    - Matches: 1
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+
+============================================================
+Dataset: Lambda Phage
+============================================================
+
+Pattern length: 5 bp
+  Shift-Or/Bitap:
+    - Search time: 28.364 ms
+    - Preprocessing: 0.0044 ms
+    - Throughput: 1.71 Mbp/s
+    - Matches: 72
+  Python re:
+    - Search time: 0.091 ms
+    - Preprocessing: 0.0004 ms
+    - Throughput: 535.11 Mbp/s
+    - Matches: 72
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+Pattern length: 10 bp
+  Shift-Or/Bitap:
+    - Search time: 28.943 ms
+    - Preprocessing: 0.0171 ms
+    - Throughput: 1.68 Mbp/s
+    - Matches: 1
+  Python re:
+    - Search time: 0.077 ms
+    - Preprocessing: 0.0004 ms
+    - Throughput: 627.13 Mbp/s
+    - Matches: 1
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+Pattern length: 15 bp
+  Shift-Or/Bitap:
+    - Search time: 28.910 ms
+    - Preprocessing: 0.0165 ms
+    - Throughput: 1.68 Mbp/s
+    - Matches: 1
+  Python re:
+    - Search time: 0.076 ms
+    - Preprocessing: 0.0004 ms
+    - Throughput: 637.18 Mbp/s
+    - Matches: 1
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+Pattern length: 20 bp
+  Shift-Or/Bitap:
+    - Search time: 31.124 ms
+    - Preprocessing: 0.0164 ms
+    - Throughput: 1.56 Mbp/s
+    - Matches: 1
+  Python re:
+    - Search time: 0.077 ms
+    - Preprocessing: 0.0004 ms
+    - Throughput: 631.37 Mbp/s
+    - Matches: 1
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+Pattern length: 30 bp
+  Shift-Or/Bitap:
+    - Search time: 28.790 ms
+    - Preprocessing: 0.0198 ms
+    - Throughput: 1.68 Mbp/s
+    - Matches: 1
+  Python re:
+    - Search time: 0.079 ms
+    - Preprocessing: 0.0005 ms
+    - Throughput: 613.79 Mbp/s
+    - Matches: 1
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+
+============================================================
+Dataset: Salmonella
+============================================================
+
+Pattern length: 5 bp
+  Shift-Or/Bitap:
+    - Search time: 101.176 ms
+    - Preprocessing: 0.0184 ms
+    - Throughput: 0.99 Mbp/s
+    - Matches: 61
+  Python re:
+    - Search time: 0.208 ms
+    - Preprocessing: 0.0005 ms
+    - Throughput: 480.22 Mbp/s
+    - Matches: 61
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+Pattern length: 10 bp
+  Shift-Or/Bitap:
+    - Search time: 102.298 ms
+    - Preprocessing: 0.0140 ms
+    - Throughput: 0.98 Mbp/s
+    - Matches: 1
+  Python re:
+    - Search time: 0.203 ms
+    - Preprocessing: 0.0003 ms
+    - Throughput: 493.24 Mbp/s
+    - Matches: 1
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+Pattern length: 15 bp
+  Shift-Or/Bitap:
+    - Search time: 102.927 ms
+    - Preprocessing: 0.0495 ms
+    - Throughput: 0.97 Mbp/s
+    - Matches: 1
+  Python re:
+    - Search time: 0.206 ms
+    - Preprocessing: 0.0004 ms
+    - Throughput: 485.63 Mbp/s
+    - Matches: 1
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+Pattern length: 20 bp
+  Shift-Or/Bitap:
+    - Search time: 102.834 ms
+    - Preprocessing: 0.0214 ms
+    - Throughput: 0.97 Mbp/s
+    - Matches: 1
+  Python re:
+    - Search time: 0.206 ms
+    - Preprocessing: 0.0005 ms
+    - Throughput: 486.38 Mbp/s
+    - Matches: 1
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+Pattern length: 30 bp
+  Shift-Or/Bitap:
+    - Search time: 103.150 ms
+    - Preprocessing: 0.0193 ms
+    - Throughput: 0.97 Mbp/s
+    - Matches: 1
+  Python re:
+    - Search time: 0.206 ms
+    - Preprocessing: 0.0004 ms
+    - Throughput: 484.97 Mbp/s
+    - Matches: 1
+  Comparison:
+    - Speedup: 0.00x
+    - Winner: Python re
+    - Correctness: PASS
+
+--------------------------------------------------------------------------------
+CONCLUSION
+--------------------------------------------------------------------------------
+
+Python's re module is on average 456.11x faster.
+
+This may be due to Python re's highly optimized C implementation.
+
+Key advantages of Shift-Or/Bitap:
+  1. Predictable O(n) time complexity
+  2. Minimal memory footprint
+  3. Support for approximate matching (not available in basic re)
+  4. No regex compilation overhead for simple patterns

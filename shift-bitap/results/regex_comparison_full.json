@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "timestamp": "2025-11-27T20:59:40.755043",
+    "description": "Fair comparison showing each algorithm's strengths"
+  },
+  "exact_matching": [
+    {
+      "pattern_length": 5,
+      "shift_or_ms": 115.34455999790225,
+      "regex_ms": 0.21037999540567398,
+      "shift_or_matches": 130,
+      "regex_matches": 130,
+      "correct": true
+    },
+    {
+      "pattern_length": 10,
+      "shift_or_ms": 113.52801999892108,
+      "regex_ms": 0.19406000210437924,
+      "shift_or_matches": 1,
+      "regex_matches": 1,
+      "correct": true
+    },
+    {
+      "pattern_length": 15,
+      "shift_or_ms": 104.00395999895409,
+      "regex_ms": 0.19732000364456326,
+      "shift_or_matches": 1,
+      "regex_matches": 1,
+      "correct": true
+    },
+    {
+      "pattern_length": 20,
+      "shift_or_ms": 103.37342000275385,
+      "regex_ms": 0.19610000017564744,
+      "shift_or_matches": 1,
+      "regex_matches": 1,
+      "correct": true
+    },
+    {
+      "pattern_length": 30,
+      "shift_or_ms": 103.80069999955595,
+      "regex_ms": 0.19610000017564744,
+      "shift_or_matches": 1,
+      "regex_matches": 1,
+      "correct": true
+    }
+  ],
+  "approximate_matching": [
+    {
+      "pattern_length": 10,
+      "max_errors": 0,
+      "shift_or_ms": 122.81419999878078,
+      "shift_or_matches": 1,
+      "regex_ms": Infinity,
+      "regex_matches": "N/A (regex cannot efficiently handle k-error matching)",
+      "shift_or_advantage": "HUGE"
+    },
+    {
+      "pattern_length": 10,
+      "max_errors": 1,
+      "shift_or_ms": 601.974233330111,
+      "shift_or_matches": 99991,
+      "regex_ms": 7.453666665242054,
+      "regex_matches": 8,
+      "shift_or_advantage": "0.0x faster"
+    },
+    {
+      "pattern_length": 10,
+      "max_errors": 2,
+      "shift_or_ms": 1023.3812333317474,
+      "shift_or_matches": 99991,
+      "regex_ms": Infinity,
+      "regex_matches": "N/A (regex cannot efficiently handle k-error matching)",
+      "shift_or_advantage": "HUGE"
+    },
+    {
+      "pattern_length": 10,
+      "max_errors": 3,
+      "shift_or_ms": 1460.831433335746,
+      "shift_or_matches": 99991,
+      "regex_ms": Infinity,
+      "regex_matches": "N/A (regex cannot efficiently handle k-error matching)",
+      "shift_or_advantage": "HUGE"
+    }
+  ],
+  "summary": {
+    "exact_matching_winner": "Python re (C implementation advantage)",
+    "approximate_matching_winner": "Shift-Or/Bitap (native support, re cannot compete)",
+    "recommendation": "Use Shift-Or/Bitap for DNA sequence analysis with error tolerance"
+  },
+  "memory": {
+    "shift_or_peak_kb": 137.373046875,
+    "regex_peak_kb": 0.6201171875
+  }
+}

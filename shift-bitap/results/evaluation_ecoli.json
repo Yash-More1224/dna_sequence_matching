@@ -1,0 +1,60 @@
+{
+  "dataset_info": {
+    "name": "ecoli_k12_mg1655",
+    "size": 100000,
+    "description": "E. coli K-12 MG1655 genome subset"
+  },
+  "timestamp": "2025-11-27T20:15:49.021566",
+  "algorithm": "Shift-Or / Bitap",
+  "evaluation_results": {
+    "exact_matching_scalability": [
+      {
+        "pattern_length": 5,
+        "preprocessing_time_ms": 0.020100007532164454,
+        "search_time_ms": 113.21739999887843,
+        "num_matches": 140
+      },
+      {
+        "pattern_length": 10,
+        "preprocessing_time_ms": 0.01679999695625156,
+        "search_time_ms": 114.12779999955092,
+        "num_matches": 1
+      },
+      {
+        "pattern_length": 15,
+        "preprocessing_time_ms": 0.013800003216601908,
+        "search_time_ms": 113.21690000477247,
+        "num_matches": 1
+      },
+      {
+        "pattern_length": 20,
+        "preprocessing_time_ms": 0.014699995517730713,
+        "search_time_ms": 103.92819999833591,
+        "num_matches": 1
+      },
+      {
+        "pattern_length": 30,
+        "preprocessing_time_ms": 0.0168999977177009,
+        "search_time_ms": 103.3874666657842,
+        "num_matches": 1
+      }
+    ],
+    "approximate_matching": [
+      {
+        "max_errors": 0,
+        "search_time_ms": 120.37820000841748,
+        "num_matches": 1
+      },
+      {
+        "max_errors": 1,
+        "search_time_ms": 579.099499998847,
+        "num_matches": 99981
+      },
+      {
+        "max_errors": 2,
+        "search_time_ms": 1029.1901000018697,
+        "num_matches": 99981
+      }
+    ]
+  }
+}

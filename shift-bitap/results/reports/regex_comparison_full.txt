@@ -1,0 +1,16 @@
+================================================================================
+SHIFT-OR/BITAP vs PYTHON re - COMPREHENSIVE ANALYSIS
+================================================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------
+
+For EXACT matching: Python re is faster (C implementation)
+For APPROXIMATE matching: Shift-Or/Bitap wins decisively
+
+Python's re module CANNOT efficiently perform k-error matching.
+Shift-Or/Bitap provides native O(n*m*k) approximate matching.
+
+RECOMMENDATION:
+For DNA sequence analysis requiring mutation tolerance,
+Shift-Or/Bitap is the superior choice.

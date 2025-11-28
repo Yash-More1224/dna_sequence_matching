@@ -1,0 +1,462 @@
+{
+  "timestamp": "2025-11-28T21:50:03.304244",
+  "criteria": {
+    "latency": {
+      "avg_throughput_mbps": 0.8522262739313645
+    },
+    "preprocessing": {
+      "avg_time_ms": 0.006094666508336862
+    },
+    "memory": {
+      "avg_search_kb": 114.5185546875
+    },
+    "accuracy": {
+      "all_passed": true
+    },
+    "scalability": {
+      "complexity": "O(n)"
+    },
+    "robustness": {
+      "max_errors_supported": "pattern_length"
+    }
+  },
+  "datasets": {
+    "Lambda Phage": {
+      "full_size": 48502,
+      "tested_size": 48502,
+      "gc_content": 49.85773782524432,
+      "latency": [
+        {
+          "pattern": "5bp",
+          "time_ms": 48.01186666979144,
+          "matches": 92,
+          "throughput_mbps": 1.01020858725572
+        },
+        {
+          "pattern": "10bp",
+          "time_ms": 47.35710001356589,
+          "matches": 1,
+          "throughput_mbps": 1.0241758888552328
+        },
+        {
+          "pattern": "15bp",
+          "time_ms": 39.27059999356667,
+          "matches": 1,
+          "throughput_mbps": 1.235071529539799
+        },
+        {
+          "pattern": "20bp",
+          "time_ms": 39.37776666134596,
+          "matches": 1,
+          "throughput_mbps": 1.2317102799943853
+        },
+        {
+          "pattern": "30bp",
+          "time_ms": 39.370699999077864,
+          "matches": 1,
+          "throughput_mbps": 1.2319313601519915
+        }
+      ],
+      "preprocessing": [
+        {
+          "pattern": "5bp",
+          "time_ms": 0.0063899962697178125
+        },
+        {
+          "pattern": "10bp",
+          "time_ms": 0.005220001912675798
+        },
+        {
+          "pattern": "15bp",
+          "time_ms": 0.004139996599406004
+        },
+        {
+          "pattern": "20bp",
+          "time_ms": 0.005139998393133283
+        },
+        {
+          "pattern": "30bp",
+          "time_ms": 0.0060600024880841374
+        }
+      ],
+      "memory": [
+        {
+          "pattern": "5bp",
+          "preprocess_kb": 0.669921875,
+          "search_kb": 70.1357421875
+        },
+        {
+          "pattern": "10bp",
+          "preprocess_kb": 0.5263671875,
+          "search_kb": 66.6982421875
+        },
+        {
+          "pattern": "15bp",
+          "preprocess_kb": 0.5625,
+          "search_kb": 66.6787109375
+        },
+        {
+          "pattern": "20bp",
+          "preprocess_kb": 0.5673828125,
+          "search_kb": 66.6787109375
+        },
+        {
+          "pattern": "30bp",
+          "preprocess_kb": 0.5771484375,
+          "search_kb": 66.6787109375
+        }
+      ],
+      "accuracy": [
+        {
+          "test": "exact_match_known_position",
+          "pattern": "TTCTCATGCT",
+          "expected_pos": 10000,
+          "found": true,
+          "total_matches": 1
+        },
+        {
+          "test": "approximate_match_1_error",
+          "matches_found": 19991,
+          "correct": true
+        }
+      ],
+      "scalability": [
+        {
+          "size": 10000,
+          "time_ms": 4.59743332855093,
+          "time_per_bp_us": 0.459743332855093
+        },
+        {
+          "size": 25000,
+          "time_ms": 13.635933331291502,
+          "time_per_bp_us": 0.5454373332516601
+        },
+        {
+          "size": 48502,
+          "time_ms": 40.40583333699033,
+          "time_per_bp_us": 0.833075612077653
+        }
+      ],
+      "robustness": [
+        {
+          "max_errors": 0,
+          "time_ms": 27.541199990082532,
+          "matches": 1
+        },
+        {
+          "max_errors": 1,
+          "time_ms": 94.34109998983331,
+          "matches": 29986
+        },
+        {
+          "max_errors": 2,
+          "time_ms": 148.4045999823138,
+          "matches": 29986
+        },
+        {
+          "max_errors": 3,
+          "time_ms": 219.91819998947904,
+          "matches": 29986
+        }
+      ]
+    },
+    "E. coli K-12": {
+      "full_size": 4641652,
+      "tested_size": 100000,
+      "gc_content": 52.585,
+      "latency": [
+        {
+          "pattern": "5bp",
+          "time_ms": 148.70176667075916,
+          "matches": 140,
+          "throughput_mbps": 0.6724869666236729
+        },
+        {
+          "pattern": "10bp",
+          "time_ms": 153.2829333348976,
+          "matches": 1,
+          "throughput_mbps": 0.6523883502510793
+        },
+        {
+          "pattern": "15bp",
+          "time_ms": 142.07879999109232,
+          "matches": 1,
+          "throughput_mbps": 0.7038347734234068
+        },
+        {
+          "pattern": "20bp",
+          "time_ms": 141.13836667578047,
+          "matches": 1,
+          "throughput_mbps": 0.7085245660360907
+        },
+        {
+          "pattern": "30bp",
+          "time_ms": 140.62213333090767,
+          "matches": 1,
+          "throughput_mbps": 0.7111256075505773
+        }
+      ],
+      "preprocessing": [
+        {
+          "pattern": "5bp",
+          "time_ms": 0.003940003807656467
+        },
+        {
+          "pattern": "10bp",
+          "time_ms": 0.0028600014047697186
+        },
+        {
+          "pattern": "15bp",
+          "time_ms": 0.0027099973522126675
+        },
+        {
+          "pattern": "20bp",
+          "time_ms": 0.003930003731511533
+        },
+        {
+          "pattern": "30bp",
+          "time_ms": 0.005269996472634375
+        }
+      ],
+      "memory": [
+        {
+          "pattern": "5bp",
+          "preprocess_kb": 0.669921875,
+          "search_kb": 142.5166015625
+        },
+        {
+          "pattern": "10bp",
+          "preprocess_kb": 0.5576171875,
+          "search_kb": 137.0791015625
+        },
+        {
+          "pattern": "15bp",
+          "preprocess_kb": 0.5625,
+          "search_kb": 137.0791015625
+        },
+        {
+          "pattern": "20bp",
+          "preprocess_kb": 0.5673828125,
+          "search_kb": 137.0791015625
+        },
+        {
+          "pattern": "30bp",
+          "preprocess_kb": 0.5771484375,
+          "search_kb": 137.0908203125
+        }
+      ],
+      "accuracy": [
+        {
+          "test": "exact_match_known_position",
+          "pattern": "ATTGCGCTGG",
+          "expected_pos": 10000,
+          "found": true,
+          "total_matches": 4
+        },
+        {
+          "test": "approximate_match_1_error",
+          "matches_found": 19991,
+          "correct": true
+        }
+      ],
+      "scalability": [
+        {
+          "size": 10000,
+          "time_ms": 4.42809999609987,
+          "time_per_bp_us": 0.44280999960998696
+        },
+        {
+          "size": 25000,
+          "time_ms": 14.577433340794718,
+          "time_per_bp_us": 0.5830973336317887
+        },
+        {
+          "size": 50000,
+          "time_ms": 44.26243332757925,
+          "time_per_bp_us": 0.8852486665515851
+        },
+        {
+          "size": 75000,
+          "time_ms": 85.75906666616599,
+          "time_per_bp_us": 1.1434542222155466
+        },
+        {
+          "size": 100000,
+          "time_ms": 143.5101666720584,
+          "time_per_bp_us": 1.435101666720584
+        }
+      ],
+      "robustness": [
+        {
+          "max_errors": 0,
+          "time_ms": 27.9770000197459,
+          "matches": 1
+        },
+        {
+          "max_errors": 1,
+          "time_ms": 100.05840001394972,
+          "matches": 29986
+        },
+        {
+          "max_errors": 2,
+          "time_ms": 161.53559999656864,
+          "matches": 29986
+        },
+        {
+          "max_errors": 3,
+          "time_ms": 227.39949999959208,
+          "matches": 29986
+        }
+      ]
+    },
+    "Salmonella": {
+      "full_size": 4857450,
+      "tested_size": 100000,
+      "gc_content": 51.351,
+      "latency": [
+        {
+          "pattern": "5bp",
+          "time_ms": 137.977433342409,
+          "matches": 120,
+          "throughput_mbps": 0.7247561980069376
+        },
+        {
+          "pattern": "10bp",
+          "time_ms": 142.06209999974817,
+          "matches": 1,
+          "throughput_mbps": 0.7039175121315063
+        },
+        {
+          "pattern": "15bp",
+          "time_ms": 140.92230000339137,
+          "matches": 1,
+          "throughput_mbps": 0.7096108990386436
+        },
+        {
+          "pattern": "20bp",
+          "time_ms": 141.77576666891886,
+          "matches": 1,
+          "throughput_mbps": 0.7053391587966122
+        },
+        {
+          "pattern": "30bp",
+          "time_ms": 131.87176666300124,
+          "matches": 1,
+          "throughput_mbps": 0.7583124313148117
+        }
+      ],
+      "preprocessing": [
+        {
+          "pattern": "5bp",
+          "time_ms": 0.006599994958378375
+        },
+        {
+          "pattern": "10bp",
+          "time_ms": 0.004710000939667225
+        },
+        {
+          "pattern": "15bp",
+          "time_ms": 0.011750005069188774
+        },
+        {
+          "pattern": "20bp",
+          "time_ms": 0.012199996854178607
+        },
+        {
+          "pattern": "30bp",
+          "time_ms": 0.010500001371838152
+        }
+      ],
+      "memory": [
+        {
+          "pattern": "5bp",
+          "preprocess_kb": 0.669921875,
+          "search_kb": 141.7353515625
+        },
+        {
+          "pattern": "10bp",
+          "preprocess_kb": 0.5576171875,
+          "search_kb": 137.0791015625
+        },
+        {
+          "pattern": "15bp",
+          "preprocess_kb": 0.5625,
+          "search_kb": 137.0791015625
+        },
+        {
+          "pattern": "20bp",
+          "preprocess_kb": 0.5673828125,
+          "search_kb": 137.0791015625
+        },
+        {
+          "pattern": "30bp",
+          "preprocess_kb": 0.5771484375,
+          "search_kb": 137.0908203125
+        }
+      ],
+      "accuracy": [
+        {
+          "test": "exact_match_known_position",
+          "pattern": "GTATTCGGGG",
+          "expected_pos": 10000,
+          "found": true,
+          "total_matches": 1
+        },
+        {
+          "test": "approximate_match_1_error",
+          "matches_found": 19991,
+          "correct": true
+        }
+      ],
+      "scalability": [
+        {
+          "size": 10000,
+          "time_ms": 4.163066662537555,
+          "time_per_bp_us": 0.4163066662537555
+        },
+        {
+          "size": 25000,
+          "time_ms": 14.008666660326222,
+          "time_per_bp_us": 0.5603466664130489
+        },
+        {
+          "size": 50000,
+          "time_ms": 37.87023332552053,
+          "time_per_bp_us": 0.7574046665104106
+        },
+        {
+          "size": 75000,
+          "time_ms": 86.6202999992917,
+          "time_per_bp_us": 1.1549373333238893
+        },
+        {
+          "size": 100000,
+          "time_ms": 143.1559000047855,
+          "time_per_bp_us": 1.431559000047855
+        }
+      ],
+      "robustness": [
+        {
+          "max_errors": 0,
+          "time_ms": 28.668699989793822,
+          "matches": 1
+        },
+        {
+          "max_errors": 1,
+          "time_ms": 97.95579998171888,
+          "matches": 29986
+        },
+        {
+          "max_errors": 2,
+          "time_ms": 150.29720001621172,
+          "matches": 29986
+        },
+        {
+          "max_errors": 3,
+          "time_ms": 208.05750001454726,
+          "matches": 29986
+        }
+      ]
+    }
+  }
+}
