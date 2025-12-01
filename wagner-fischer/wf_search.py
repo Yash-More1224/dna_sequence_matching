@@ -1,8 +1,3 @@
-"""
-Pattern Search using Wagner-Fischer Algorithm
-Implements sliding window approximate pattern matching in DNA sequences.
-"""
-
 from typing import List, Dict, Tuple, Optional
 from dataclasses import dataclass
 from wf_core import WagnerFischer
@@ -11,7 +6,6 @@ import time
 
 @dataclass
 class Match:
-    """Represents a pattern match in the text."""
     position: int           # Start position in text
     end_position: int       # End position in text
     matched_text: str       # The actual text that matched
@@ -20,25 +14,13 @@ class Match:
 
 
 class PatternSearcher:
-    """
-    Sliding window pattern search using Wagner-Fischer algorithm.
-    Finds all approximate matches of pattern in text.
-    """
     
     def __init__(self, 
                  max_distance: int = 2,
                  substitution_cost: int = 1,
                  insertion_cost: int = 1,
                  deletion_cost: int = 1):
-        """
-        Initialize pattern searcher.
         
-        Args:
-            max_distance: Maximum edit distance to consider a match
-            substitution_cost: Cost for substitution operations
-            insertion_cost: Cost for insertion operations
-            deletion_cost: Cost for deletion operations
-        """
         self.max_distance = max_distance
         self.wf = WagnerFischer(substitution_cost, insertion_cost, deletion_cost)
     
@@ -46,18 +28,7 @@ class PatternSearcher:
                pattern: str, 
                text: str,
                return_alignment: bool = False) -> List[Match]:
-        """
-        Search for all approximate matches of pattern in text.
-        Uses sliding window approach.
         
-        Args:
-            pattern: Pattern to search for
-            text: Text to search in
-            return_alignment: If True, compute alignment for each match
-            
-        Returns:
-            List of Match objects
-        """
         matches = []
         pattern_len = len(pattern)
         text_len = len(text)
@@ -104,16 +75,6 @@ class PatternSearcher:
         return matches
     
     def search_exact(self, pattern: str, text: str) -> List[Match]:
-        """
-        Search for exact matches only (edit distance = 0).
-        
-        Args:
-            pattern: Pattern to search for
-            text: Text to search in
-            
-        Returns:
-            List of exact matches
-        """
         matches = []
         pattern_len = len(pattern)
         text_len = len(text)
@@ -134,17 +95,6 @@ class PatternSearcher:
                        patterns: List[str],
                        text: str,
                        return_alignment: bool = False) -> Dict[str, List[Match]]:
-        """
-        Search for multiple patterns in text.
-        
-        Args:
-            patterns: List of patterns to search for
-            text: Text to search in
-            return_alignment: If True, compute alignment for each match
-            
-        Returns:
-            Dictionary mapping pattern to list of matches
-        """
         results = {}
         
         for pattern in patterns:
@@ -154,25 +104,11 @@ class PatternSearcher:
         return results
     
     def count_matches(self, pattern: str, text: str) -> int:
-        """
-        Count number of approximate matches without storing details.
-        More memory efficient for large texts.
-        
-        Args:
-            pattern: Pattern to search for
-            text: Text to search in
-            
-        Returns:
-            Number of matches found
-        """
         return len(self.search(pattern, text, return_alignment=False))
 
 
 class BenchmarkSearcher(PatternSearcher):
-    """
-    Extended PatternSearcher with timing and statistics.
-    """
-    
+   
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.stats = {
@@ -185,17 +121,6 @@ class BenchmarkSearcher(PatternSearcher):
                          pattern: str,
                          text: str,
                          return_alignment: bool = False) -> Tuple[List[Match], Dict]:
-        """
-        Search with performance statistics.
-        
-        Args:
-            pattern: Pattern to search for
-            text: Text to search in
-            return_alignment: If True, compute alignment for each match
-            
-        Returns:
-            Tuple of (matches, statistics)
-        """
         start_time = time.perf_counter()
         
         matches = self.search(pattern, text, return_alignment)
@@ -227,18 +152,6 @@ def find_motifs(pattern: str,
                 text: str, 
                 max_distance: int = 2,
                 min_similarity: float = 0.8) -> List[Match]:
-    """
-    Convenience function to find motifs with similarity threshold.
-    
-    Args:
-        pattern: Motif pattern to search for
-        text: DNA sequence to search in
-        max_distance: Maximum edit distance
-        min_similarity: Minimum similarity ratio (0.0 to 1.0)
-        
-    Returns:
-        List of matches meeting similarity threshold
-    """
     searcher = PatternSearcher(max_distance=max_distance)
     matches = searcher.search(pattern, text)
     

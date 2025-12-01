@@ -1,31 +1,11 @@
-"""
-Wagner-Fischer Algorithm Implementation
-Computes Levenshtein edit distance using dynamic programming.
-Supports both full matrix and space-optimized variants.
-"""
-
 import numpy as np
 from typing import Tuple, List, Optional
 
-
 class WagnerFischer:
-    """
-    Wagner-Fischer algorithm for computing Levenshtein edit distance.
-    Supports traceback for alignment reconstruction.
-    """
-    
     def __init__(self, 
                  substitution_cost: int = 1,
                  insertion_cost: int = 1,
                  deletion_cost: int = 1):
-        """
-        Initialize Wagner-Fischer with custom operation costs.
-        
-        Args:
-            substitution_cost: Cost of substituting one character for another
-            insertion_cost: Cost of inserting a character
-            deletion_cost: Cost of deleting a character
-        """
         self.sub_cost = substitution_cost
         self.ins_cost = insertion_cost
         self.del_cost = deletion_cost
@@ -34,17 +14,7 @@ class WagnerFischer:
                         source: str, 
                         target: str,
                         return_matrix: bool = False) -> Tuple[int, Optional[np.ndarray]]:
-        """
-        Compute the Levenshtein edit distance between source and target.
         
-        Args:
-            source: Source string
-            target: Target string
-            return_matrix: If True, return the full DP matrix
-            
-        Returns:
-            Tuple of (edit_distance, matrix) where matrix is None if return_matrix=False
-        """
         m, n = len(source), len(target)
         
         # Initialize DP matrix
@@ -75,17 +45,7 @@ class WagnerFischer:
         return distance, matrix
     
     def compute_distance_optimized(self, source: str, target: str) -> int:
-        """
-        Space-optimized version using only two rows.
-        Uses O(min(m,n)) space instead of O(m*n).
         
-        Args:
-            source: Source string
-            target: Target string
-            
-        Returns:
-            Edit distance as integer
-        """
         # Ensure source is the shorter string for space optimization
         if len(source) > len(target):
             source, target = target, source
@@ -119,17 +79,7 @@ class WagnerFischer:
         return int(prev_row[n])
     
     def compute_with_traceback(self, source: str, target: str) -> Tuple[int, List[str]]:
-        """
-        Compute edit distance and return the alignment operations.
         
-        Args:
-            source: Source string
-            target: Target string
-            
-        Returns:
-            Tuple of (distance, operations) where operations is a list of
-            'match', 'substitute', 'insert', or 'delete'
-        """
         m, n = len(source), len(target)
         distance, dp = self.compute_distance(source, target, return_matrix=True)
         
@@ -174,19 +124,7 @@ class WagnerFischer:
                                source: str, 
                                target: str, 
                                threshold: int) -> Tuple[int, bool]:
-        """
-        Compute edit distance with early termination if threshold is exceeded.
-        Uses Ukkonen's optimization.
         
-        Args:
-            source: Source string
-            target: Target string
-            threshold: Maximum allowed edit distance
-            
-        Returns:
-            Tuple of (distance, within_threshold) where within_threshold is
-            False if distance exceeds threshold
-        """
         m, n = len(source), len(target)
         
         # If length difference exceeds threshold, no need to compute
@@ -223,35 +161,13 @@ class WagnerFischer:
 
 
 def levenshtein_distance(s1: str, s2: str) -> int:
-    """
-    Convenience function to compute Levenshtein distance with default costs.
-    
-    Args:
-        s1: First string
-        s2: Second string
-        
-    Returns:
-        Edit distance as integer
-    """
     wf = WagnerFischer()
     return wf.compute_distance_optimized(s1, s2)
 
 
 def similarity_ratio(s1: str, s2: str) -> float:
-    """
-    Compute similarity ratio between two strings (0.0 to 1.0).
-    
-    Args:
-        s1: First string
-        s2: Second string
-        
-    Returns:
-        Similarity ratio where 1.0 means identical and 0.0 means completely different
-    """
     distance = levenshtein_distance(s1, s2)
     max_len = max(len(s1), len(s2))
-    
     if max_len == 0:
         return 1.0
-    
     return 1.0 - (distance / max_len)

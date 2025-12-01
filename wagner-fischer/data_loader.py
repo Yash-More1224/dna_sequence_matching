@@ -1,7 +1,3 @@
-"""
-Data Loading and Generation Utilities
-Handles FASTA/FASTQ files and generates synthetic DNA sequences.
-"""
 
 import os
 import random
@@ -31,31 +27,16 @@ class Sequence:
 
 
 class FastaLoader:
-    """
-    FASTA file loader with support for compressed files.
-    """
+    
     
     def __init__(self, cache_dir: Optional[str] = None):
-        """
-        Initialize FASTA loader.
         
-        Args:
-            cache_dir: Directory to cache parsed sequences
-        """
         self.cache_dir = cache_dir
         if cache_dir:
             Path(cache_dir).mkdir(parents=True, exist_ok=True)
     
     def load(self, filepath: str) -> List[Sequence]:
-        """
-        Load sequences from FASTA file.
         
-        Args:
-            filepath: Path to FASTA file (.fasta, .fa, .fna, .gz)
-            
-        Returns:
-            List of Sequence objects
-        """
         if not BIOPYTHON_AVAILABLE:
             return self._load_simple(filepath)
         
@@ -131,15 +112,7 @@ class FastaLoader:
         return sequences
     
     def load_single(self, filepath: str) -> Sequence:
-        """
-        Load a single sequence from FASTA file.
-        
-        Args:
-            filepath: Path to FASTA file
-            
-        Returns:
-            First sequence in file
-        """
+       
         sequences = self.load(filepath)
         if not sequences:
             raise ValueError(f"No sequences found in {filepath}")
@@ -154,25 +127,12 @@ class SyntheticDataGenerator:
     DNA_BASES = ['A', 'C', 'G', 'T']
     
     def __init__(self, seed: Optional[int] = None):
-        """
-        Initialize generator.
         
-        Args:
-            seed: Random seed for reproducibility
-        """
         if seed is not None:
             random.seed(seed)
     
     def generate_random_sequence(self, length: int) -> str:
-        """
-        Generate random DNA sequence.
-        
-        Args:
-            length: Length of sequence
-            
-        Returns:
-            Random DNA sequence
-        """
+       
         return ''.join(random.choices(self.DNA_BASES, k=length))
     
     def mutate_sequence(self,
@@ -180,18 +140,7 @@ class SyntheticDataGenerator:
                        substitution_rate: float = 0.01,
                        insertion_rate: float = 0.005,
                        deletion_rate: float = 0.005) -> Tuple[str, List[Dict]]:
-        """
-        Introduce mutations into a sequence.
         
-        Args:
-            sequence: Original sequence
-            substitution_rate: Probability of substitution per base
-            insertion_rate: Probability of insertion per base
-            deletion_rate: Probability of deletion per base
-            
-        Returns:
-            Tuple of (mutated_sequence, mutations_log)
-        """
         mutated = list(sequence)
         mutations = []
         i = 0
@@ -239,17 +188,7 @@ class SyntheticDataGenerator:
                         num_sequences: int,
                         seq_length: int,
                         mutation_rate: float = 0.01) -> List[Tuple[str, str]]:
-        """
-        Generate dataset of original and mutated sequence pairs.
-        
-        Args:
-            num_sequences: Number of sequence pairs to generate
-            seq_length: Length of each sequence
-            mutation_rate: Overall mutation rate
-            
-        Returns:
-            List of (original, mutated) sequence pairs
-        """
+      
         dataset = []
         
         for _ in range(num_sequences):
@@ -265,13 +204,7 @@ class SyntheticDataGenerator:
         return dataset
     
     def save_fasta(self, sequences: List[Tuple[str, str]], filepath: str):
-        """
-        Save sequences to FASTA file.
-        
-        Args:
-            sequences: List of (id, sequence) tuples
-            filepath: Output file path
-        """
+
         with open(filepath, 'w') as f:
             for seq_id, sequence in sequences:
                 f.write(f">{seq_id}\n")
@@ -281,15 +214,7 @@ class SyntheticDataGenerator:
 
 
 def download_ecoli_genome(output_dir: str = "data") -> str:
-    """
-    Download E. coli K-12 genome from NCBI.
     
-    Args:
-        output_dir: Directory to save genome
-        
-    Returns:
-        Path to downloaded file
-    """
     import urllib.request
     
     Path(output_dir).mkdir(parents=True, exist_ok=True)
@@ -309,12 +234,7 @@ def download_ecoli_genome(output_dir: str = "data") -> str:
 
 
 def create_test_datasets(output_dir: str = "data"):
-    """
-    Create synthetic test datasets for benchmarking.
     
-    Args:
-        output_dir: Directory to save datasets
-    """
     Path(output_dir).mkdir(parents=True, exist_ok=True)
     
     generator = SyntheticDataGenerator(seed=42)
