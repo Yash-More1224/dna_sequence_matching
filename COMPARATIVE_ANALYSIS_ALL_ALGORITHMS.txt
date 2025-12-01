@@ -2,7 +2,7 @@
      COMPREHENSIVE COMPARATIVE ANALYSIS: ALL 5 DNA MATCHING ALGORITHMS
 ================================================================================
 
-Generated: 2025-11-28
+Generated: 2025-12-01 (Boyer-Moore updated)
 Datasets: E. coli K-12 (4.6M bp), Lambda Phage (48K bp), Salmonella (4.9M bp)
 
 ================================================================================
@@ -27,7 +27,7 @@ Average search time for 10-20bp patterns on ~100K bp sequences:
 |-----------------|---------------|-------------------|----------------------|
 | Suffix Array    | 0.02          | 200+              | After index built    |
 | KMP             | 343-363       | 12.82             | Consistent O(n+m)    |
-| Boyer-Moore     | 4810-6936     | 0.67-1.01         | Full genome tests    |
+| Boyer-Moore     | 5584-7827     | 0.69-0.94         | Full genome tests    |
 | Shift-Or/Bitap  | 140-153       | 0.65-0.71         | Pure Python impl     |
 | Wagner-Fischer  | 2.50          | 0.40 ops/s        | DP-based, 30bp       |
 
@@ -49,7 +49,7 @@ Notes:
 | Algorithm       | Preprocessing     | Time Complexity | Notes                |
 |-----------------|-------------------|-----------------|----------------------|
 | Suffix Array    | 92-97 seconds     | O(n²)           | Full genome indexing |
-| Boyer-Moore     | 0.015-0.018 ms    | O(m + σ)        | Bad char + good suffix|
+| Boyer-Moore     | 0.020-0.028 ms    | O(m + σ)        | Bad char + good suffix|
 | KMP             | 0.638-553.876 µs  | O(m)            | LPS array (10-10Kbp) |
 | Shift-Or/Bitap  | 0.003-0.012 ms    | O(m)            | Bitmask creation     |
 | Wagner-Fischer  | 0 ms              | O(1)            | No preprocessing     |
@@ -69,7 +69,7 @@ Trade-off Analysis:
 | Algorithm       | Peak Memory     | Space Complexity | Index Size          |
 |-----------------|-----------------|------------------|---------------------|
 | Suffix Array    | ~4 bytes/char   | O(n)             | ~18-19 MB (full)    |
-| Boyer-Moore     | 4.4-4.6 MB      | O(m + σ)         | 80 bytes (tables)   |
+| Boyer-Moore     | 0.047-4.6 MB    | O(m + σ)         | 80 bytes (tables)   |
 | KMP             | 0.23-78.5 KB    | O(m)             | 8 bytes/char (LPS)  |
 | Shift-Or/Bitap  | 67-143 KB       | O(σ)             | 4 bitmasks (DNA)    |
 | Wagner-Fischer  | 0.009 MB        | O(min(m,n))      | DP row only (8.9KB) |
@@ -119,7 +119,7 @@ Scalability Test Results (text size scaling):
 | Algorithm       | 10K bp    | 100K bp   | 4.6M bp   | Scaling Factor |
 |-----------------|-----------|-----------|-----------|----------------|
 | KMP             | ~0.8 ms   | ~8.4 ms   | ~345 ms   | ~1.0x (linear) |
-| Boyer-Moore     | ~42 ms    | ~84 ms    | ~3946 ms  | ~1.0x (linear) |
+| Boyer-Moore     | ~12 ms    | ~118 ms   | ~5584 ms  | ~1.0x (linear) |
 | Suffix Array    | N/A       | ~0.02 ms  | ~0.02 ms  | O(1) queries   |
 | Shift-Or/Bitap  | ~4.4 ms   | ~143 ms   | N/A       | ~1.4x          |
 
@@ -236,7 +236,7 @@ Choice should be based on:
 ================================================================================
 
 Results compiled from:
-- boyer-moore/results/comprehensive_evaluation_report.txt
+- boyer-moore/results/comprehensive_evaluation_report.txt (re-run 2025-12-01)
 - kmp/results/reports/comprehensive_evaluation_20251119_222638_detailed.txt
 - suffix-tree_array/EVALUATION_SUMMARY.md
 - shift-bitap/results/comprehensive_6criteria.json
