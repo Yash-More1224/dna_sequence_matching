@@ -44,7 +44,7 @@ data/*.fna.gz
 data/*.fasta
 data/*.fastq
 data/*.gz
-
+data/
 # OS
 .DS_Store
 Thumbs.db
@@ -55,7 +55,6 @@ Thumbs.db
 
 # Logs
 *.log
-requirements.txt
 FILE_ANALYSIS.md
 PROJECT_SUMMARY.md
 results/
