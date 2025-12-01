@@ -18,23 +18,12 @@ class EditDistanceResult:
 
 
 class WagnerFischer:
-    """
-    Wagner-Fischer algorithm for computing Levenshtein edit distance.
-    Supports multiple variants: full matrix, space-optimized, banded, and threshold-based.
-    """
     
     def __init__(self, 
                  substitution_cost: int = 1,
                  insertion_cost: int = 1,
                  deletion_cost: int = 1):
-        """
-        Initialize Wagner-Fischer with custom operation costs.
         
-        Args:
-            substitution_cost: Cost of substituting one character for another
-            insertion_cost: Cost of inserting a character
-            deletion_cost: Cost of deleting a character
-        """
         self.sub_cost = substitution_cost
         self.ins_cost = insertion_cost
         self.del_cost = deletion_cost
@@ -43,17 +32,7 @@ class WagnerFischer:
                         source: str, 
                         target: str,
                         return_matrix: bool = False) -> Tuple[int, Optional[np.ndarray]]:
-        """
-        Compute the Levenshtein edit distance using full DP matrix.
         
-        Args:
-            source: Source string
-            target: Target string
-            return_matrix: If True, return the full DP matrix
-            
-        Returns:
-            Tuple of (edit_distance, matrix) where matrix is None if return_matrix=False
-        """
         m, n = len(source), len(target)
         
         # Initialize DP matrix
@@ -84,17 +63,7 @@ class WagnerFischer:
         return distance, matrix
     
     def compute_distance_optimized(self, source: str, target: str) -> int:
-        """
-        Space-optimized version using only two rows.
-        Uses O(min(m,n)) space instead of O(m*n).
-        
-        Args:
-            source: Source string
-            target: Target string
-            
-        Returns:
-            Edit distance as integer
-        """
+       
         # Ensure source is the shorter string for space optimization
         if len(source) > len(target):
             source, target = target, source
@@ -128,16 +97,7 @@ class WagnerFischer:
         return int(prev_row[n])
     
     def compute_with_traceback(self, source: str, target: str) -> EditDistanceResult:
-        """
-        Compute edit distance and return the alignment operations.
-        
-        Args:
-            source: Source string
-            target: Target string
-            
-        Returns:
-            EditDistanceResult with distance, operations, and aligned strings
-        """
+       
         m, n = len(source), len(target)
         distance, dp = self.compute_distance(source, target, return_matrix=True)
         

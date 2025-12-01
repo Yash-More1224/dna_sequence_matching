@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""
-Master Script to Run Complete Wagner-Fischer Evaluation Pipeline
-Executes all steps: ground truth generation, benchmarking, and visualization.
-"""
+
 
 import subprocess
 import sys
