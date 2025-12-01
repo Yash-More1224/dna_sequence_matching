@@ -21,12 +21,12 @@ Datasets: E. coli K-12 (4.6M bp), Lambda Phage (48K bp), Salmonella (4.9M bp)
                     CRITERION 1: LATENCY / TIME PERFORMANCE
 ================================================================================
 
-Average search time for 10-20bp patterns on ~100K bp sequences:
+Average search time for 10-20bp patterns on ~100K bp sequences:   
 
 | Algorithm       | Avg Time (ms) | Throughput (Mbp/s) | Notes                |
 |-----------------|---------------|-------------------|----------------------|
 | Suffix Array    | 0.02          | 200+              | After index built    |
-| KMP             | 343-363       | 12.8              | Consistent O(n+m)    |
+| KMP             | 343-363       | 12.82             | Consistent O(n+m)    |
 | Boyer-Moore     | 4810-6936     | 0.67-1.01         | Full genome tests    |
 | Shift-Or/Bitap  | 140-153       | 0.65-0.71         | Pure Python impl     |
 | Wagner-Fischer  | ~12           | ~3.6              | DP-based             |
@@ -48,7 +48,7 @@ Notes:
 |-----------------|-------------------|-----------------|----------------------|
 | Suffix Array    | 92-97 seconds     | O(n²)           | Full genome indexing |
 | Boyer-Moore     | 0.015-0.018 ms    | O(m + σ)        | Bad char + good suffix|
-| KMP             | 0.003-0.029 ms    | O(m)            | LPS array            |
+| KMP             | 0.638-553.876 µs  | O(m)            | LPS array (10-10Kbp) |
 | Shift-Or/Bitap  | 0.003-0.012 ms    | O(m)            | Bitmask creation     |
 | Wagner-Fischer  | 0 ms              | O(1)            | No preprocessing     |
 
@@ -68,7 +68,7 @@ Trade-off Analysis:
 |-----------------|-----------------|------------------|---------------------|
 | Suffix Array    | ~4 bytes/char   | O(n)             | ~18-19 MB (full)    |
 | Boyer-Moore     | 4.4-4.6 MB      | O(m + σ)         | 80 bytes (tables)   |
-| KMP             | ~0.05 MB        | O(m)             | LPS array only      |
+| KMP             | 0.23-78.5 KB    | O(m)             | 8 bytes/char (LPS)  |
 | Shift-Or/Bitap  | 67-143 KB       | O(σ)             | 4 bitmasks (DNA)    |
 | Wagner-Fischer  | ~0.03 MB        | O(min(m,n))      | DP row only         |
 
@@ -129,9 +129,9 @@ WINNER (no preprocessing): KMP
 ================================================================================
 
 | Algorithm       | DNA Alphabet | GC Variance | Pattern Types | Mutations |
-|-----------------|--------------|-------------|---------------|-----------|
+|-----------------|--------------|-------------|---------------|-----------||
 | Boyer-Moore     | ✓ Excellent  | ±0% impact  | All types     | No        |
-| KMP             | ✓ Excellent  | ±0% impact  | All types     | No        |
+| KMP             | ✓ Excellent  | ±14% impact | All types     | No        |
 | Suffix Array    | ✓ Excellent  | ±20% impact | All types     | No        |
 | Shift-Or/Bitap  | ✓ Excellent  | ±0% impact  | All types     | YES (k-error)|
 | Wagner-Fischer  | ✓ Excellent  | ±0% impact  | All types     | YES (edit dist)|
@@ -235,7 +235,7 @@ Choice should be based on:
 
 Results compiled from:
 - boyer-moore/results/comprehensive_evaluation_report.txt
-- kmp/results/reports/comprehensive_evaluation_20251119_222638.txt
+- kmp/results/reports/comprehensive_evaluation_20251119_222638_detailed.txt
 - suffix-tree_array/EVALUATION_SUMMARY.md
 - shift-bitap/results/comprehensive_6criteria.json
 - wagner-fischer/EVALUATION_SUMMARY.md
