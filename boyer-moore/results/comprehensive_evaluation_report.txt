@@ -2,7 +2,7 @@
 BOYER-MOORE ALGORITHM - COMPREHENSIVE EVALUATION REPORT
 ================================================================================
 
-Generated: 2025-11-22 15:25:36
+Generated: 2025-12-01 21:30:03
 
 Datasets Evaluated: 3
 
@@ -11,7 +11,7 @@ Datasets Evaluated: 3
 DATASET: ECOLI
 ================================================================================
 
-File: /home/neemon/Desktop/semesters/sem-3/AAD/project/dna_sequence_matching/dataset/ecoli_k12_mg1655.fasta
+File: C:\Users\shrey\b\dna_sequence_matching\dataset\ecoli_k12_mg1655.fasta
 Length: 4,641,652 bp
 GC Content: 50.79%
 Description: NC_000913.3 Escherichia coli str. K-12 substr. MG1655, complete genome...
@@ -23,14 +23,14 @@ Description: NC_000913.3 Escherichia coli str. K-12 substr. MG1655, complete gen
 
 Pattern Len  Time (ms)    Throughput      Matches    Comparisons 
 --------------------------------------------------------------------------------
-4            10787.904    0.43            13856      2746130     
-8            6079.159     0.76            28         1564683     
-16           6935.696     0.67            1          1803730     
-32           4390.532     1.06            1          1130337     
-64           2868.163     1.62            0          732848      
-128          2200.240     2.11            1          540784      
-256          1065.629     4.36            0          269871      
-512          816.303      5.69            0          170033      
+4            10855.082    0.43            13856      2746130     
+8            5963.848     0.78            28         1564683     
+16           6774.365     0.69            1          1803730     
+32           4290.367     1.08            1          1130337     
+64           2776.836     1.67            0          732848      
+128          2165.864     2.14            1          540784      
+256          1135.286     4.09            0          269871      
+512          1119.039     4.15            0          170033      
 
 
 --------------------------------------------------------------------------------
@@ -39,10 +39,10 @@ Pattern Len  Time (ms)    Throughput      Matches    Comparisons
 
 Text Size       Time (ms)    Throughput      Efficiency  
 --------------------------------------------------------------------------------
-50,000          42.188       1.19            0.2147      
-100,000         83.756       1.19            0.2128      
-500,000         423.141      1.18            0.2155      
-4,641,652       3946.422     1.18            0.2172      
+50,000          59.153       0.85            0.2147      
+100,000         118.244      0.85            0.2128      
+500,000         613.155      0.82            0.2155      
+4,641,652       5584.263     0.83            0.2172      
 
 
 --------------------------------------------------------------------------------
@@ -51,10 +51,10 @@ Text Size       Time (ms)    Throughput      Efficiency
 
 Variant         Time (ms)    Comparisons     Shifts    
 --------------------------------------------------------------------------------
-full            3942.475     1008180         725089    
-bcr_only        3945.716     1008180         725089    
-gsr_only        3952.009     1008180         725089    
-horspool        3961.820     1008180         725089    
+full            5547.391     1008180         725089    
+bcr_only        5491.463     1008180         725089    
+gsr_only        5492.240     1008180         725089    
+horspool        5527.696     1008180         725089    
 
 
 --------------------------------------------------------------------------------
@@ -63,11 +63,11 @@ horspool        3961.820     1008180         725089
 
 Pattern      Length   Matches    Time (ms)    Density     
 --------------------------------------------------------------------------------
-TATAAT       6        315        6060.445     67.86       
-AGGAGGT      7        66         6523.621     14.22       
-TGTGA        5        2901       8878.813     624.99      
-GCGGCG       6        3605       5958.391     776.66      
-AATTGTGAGC   10       0          7977.231     0.00        
+TATAAT       6        315        8518.037     67.86       
+AGGAGGT      7        66         6892.258     14.22       
+TGTGA        5        2901       8722.946     624.99      
+GCGGCG       6        3605       5945.356     776.66      
+AATTGTGAGC   10       0          7840.644     0.00        
 
 
 --------------------------------------------------------------------------------
@@ -75,18 +75,18 @@ PERFORMANCE SUMMARY
 --------------------------------------------------------------------------------
 
 Latency/Time:
-  Mean search time: 6935.696 ms
-  Median search time: 6930.712 ms
-  Std deviation: 23.381 ms
-  Min/Max: 6906.273 / 6986.760 ms
+  Mean search time: 6774.365 ms
+  Median search time: 6776.907 ms
+  Std deviation: 77.208 ms
+  Min/Max: 6679.280 / 6888.372 ms
 
 Preprocessing:
-  Mean preprocessing time: 0.015276 ms
+  Mean preprocessing time: 0.024180 ms
   Preprocessing overhead: 0.00%
 
 Throughput:
-  Data throughput: 0.67 MB/s
-  Pattern matching rate: 0.14 matches/sec
+  Data throughput: 0.69 MB/s
+  Pattern matching rate: 0.15 matches/sec
 
 Memory:
   Peak memory usage: 4.427 MB
@@ -108,7 +108,7 @@ Accuracy (Exact Matching):
 DATASET: LAMBDA_PHAGE
 ================================================================================
 
-File: /home/neemon/Desktop/semesters/sem-3/AAD/project/dna_sequence_matching/dataset/lambda_phage.fasta
+File: C:\Users\shrey\b\dna_sequence_matching\dataset\lambda_phage.fasta
 Length: 48,502 bp
 GC Content: 49.86%
 Description: NC_001416.1 Enterobacteria phage lambda, complete genome...
@@ -120,14 +120,14 @@ Description: NC_001416.1 Enterobacteria phage lambda, complete genome...
 
 Pattern Len  Time (ms)    Throughput      Matches    Comparisons 
 --------------------------------------------------------------------------------
-4            89.571       0.54            230        23663       
-8            62.194       0.78            0          15610       
-16           52.316       0.93            1          13740       
-32           58.634       0.83            1          14495       
-64           35.556       1.36            1          9024        
-128          18.643       2.60            0          4594        
-256          7.748        6.26            0          1939        
-512          7.286        6.66            0          1520        
+4            94.713       0.51            230        23663       
+8            64.419       0.75            0          15610       
+16           51.707       0.94            1          13740       
+32           57.517       0.84            1          14495       
+64           35.690       1.36            1          9024        
+128          18.906       2.57            0          4594        
+256          7.403        6.55            0          1939        
+512          9.257        5.24            0          1520        
 
 
 --------------------------------------------------------------------------------
@@ -136,8 +136,8 @@ Pattern Len  Time (ms)    Throughput      Matches    Comparisons
 
 Text Size       Time (ms)    Throughput      Efficiency  
 --------------------------------------------------------------------------------
-10,000          12.092       0.83            0.3264      
-48,502          63.861       0.76            0.3488      
+10,000          12.066       0.83            0.3264      
+48,502          63.622       0.76            0.3488      
 
 
 --------------------------------------------------------------------------------
@@ -146,10 +146,10 @@ Text Size       Time (ms)    Throughput      Efficiency
 
 Variant         Time (ms)    Comparisons     Shifts    
 --------------------------------------------------------------------------------
-full            64.155       16919           11707     
-bcr_only        63.885       16919           11707     
-gsr_only        63.866       16919           11707     
-horspool        64.420       16919           11707     
+full            64.559       16919           11707     
+bcr_only        62.083       16919           11707     
+gsr_only        62.622       16919           11707     
+horspool        65.828       16919           11707     
 
 
 --------------------------------------------------------------------------------
@@ -158,11 +158,11 @@ horspool        64.420       16919           11707
 
 Pattern      Length   Matches    Time (ms)    Density     
 --------------------------------------------------------------------------------
-TATAAT       6        4          63.895       82.47       
-AGGAGGT      7        3          69.222       61.85       
-TGTGA        5        42         94.994       865.94      
-GCGGCG       6        34         62.232       701.00      
-AATTGTGAGC   10       0          84.583       0.00        
+TATAAT       6        4          64.906       82.47       
+AGGAGGT      7        3          68.978       61.85       
+TGTGA        5        42         95.351       865.94      
+GCGGCG       6        34         62.542       701.00      
+AATTGTGAGC   10       0          83.400       0.00        
 
 
 --------------------------------------------------------------------------------
@@ -170,18 +170,18 @@ PERFORMANCE SUMMARY
 --------------------------------------------------------------------------------
 
 Latency/Time:
-  Mean search time: 52.316 ms
-  Median search time: 52.018 ms
-  Std deviation: 1.260 ms
-  Min/Max: 51.667 / 55.876 ms
+  Mean search time: 51.707 ms
+  Median search time: 51.069 ms
+  Std deviation: 2.052 ms
+  Min/Max: 49.660 / 56.540 ms
 
 Preprocessing:
-  Mean preprocessing time: 0.008881 ms
-  Preprocessing overhead: 0.02%
+  Mean preprocessing time: 0.020420 ms
+  Preprocessing overhead: 0.04%
 
 Throughput:
-  Data throughput: 0.93 MB/s
-  Pattern matching rate: 19.11 matches/sec
+  Data throughput: 0.94 MB/s
+  Pattern matching rate: 19.34 matches/sec
 
 Memory:
   Peak memory usage: 0.047 MB
@@ -203,7 +203,7 @@ Accuracy (Exact Matching):
 DATASET: SALMONELLA
 ================================================================================
 
-File: /home/neemon/Desktop/semesters/sem-3/AAD/project/dna_sequence_matching/dataset/salmonella_typhimurium.fasta
+File: C:\Users\shrey\b\dna_sequence_matching\dataset\salmonella_typhimurium.fasta
 Length: 4,857,450 bp
 GC Content: 52.22%
 Description: NC_003197.2 Salmonella enterica subsp. enterica serovar Typhimurium str. LT2, complete genome...
@@ -215,14 +215,14 @@ Description: NC_003197.2 Salmonella enterica subsp. enterica serovar Typhimurium
 
 Pattern Len  Time (ms)    Throughput      Matches    Comparisons 
 --------------------------------------------------------------------------------
-4            9251.468     0.53            21342      2456717     
-8            7264.728     0.67            50         1837514     
-16           4810.922     1.01            1          1213988     
-32           3874.942     1.25            1          965563      
-64           2973.152     1.63            0          757547      
-128          1696.315     2.86            0          431054      
-256          1228.243     3.95            1          301425      
-512          622.244      7.81            0          130485      
+4            9010.086     0.54            21342      2456717     
+8            7084.860     0.69            50         1837514     
+16           6040.120     0.80            1          1213988     
+32           5474.677     0.89            1          965563      
+64           4327.407     1.12            0          757547      
+128          2358.857     2.06            0          431054      
+256          1768.411     2.75            1          301425      
+512          866.349      5.61            0          130485      
 
 
 --------------------------------------------------------------------------------
@@ -231,10 +231,10 @@ Pattern Len  Time (ms)    Throughput      Matches    Comparisons
 
 Text Size       Time (ms)    Throughput      Efficiency  
 --------------------------------------------------------------------------------
-50,000          57.506       0.87            0.2991      
-100,000         115.259      0.87            0.3017      
-500,000         582.564      0.86            0.3033      
-4,857,450       5618.813     0.86            0.2994      
+50,000          89.765       0.56            0.2991      
+100,000         175.223      0.57            0.3017      
+500,000         836.304      0.60            0.3033      
+4,857,450       7827.398     0.62            0.2994      
 
 
 --------------------------------------------------------------------------------
@@ -243,10 +243,10 @@ Text Size       Time (ms)    Throughput      Efficiency
 
 Variant         Time (ms)    Comparisons     Shifts    
 --------------------------------------------------------------------------------
-full            5615.913     1454222         1029127   
-bcr_only        5629.295     1454222         1029127   
-gsr_only        5630.492     1454222         1029127   
-horspool        5620.363     1454222         1029127   
+full            7817.358     1454222         1029127   
+bcr_only        7725.711     1454222         1029127   
+gsr_only        7763.747     1454222         1029127   
+horspool        7882.954     1454222         1029127   
 
 
 --------------------------------------------------------------------------------
@@ -255,11 +255,11 @@ horspool        5620.363     1454222         1029127
 
 Pattern      Length   Matches    Time (ms)    Density     
 --------------------------------------------------------------------------------
-TATAAT       6        403        6271.804     82.97       
-AGGAGGT      7        123        6772.215     25.32       
-TGTGA        5        2656       9327.562     546.79      
-GCGGCG       6        6141       6432.519     1264.24     
-AATTGTGAGC   10       5          8334.139     1.03        
+TATAAT       6        403        8439.083     82.97       
+AGGAGGT      7        123        9334.308     25.32       
+TGTGA        5        2656       12852.591    546.79      
+GCGGCG       6        6141       8929.737     1264.24     
+AATTGTGAGC   10       5          9084.396     1.03        
 
 
 --------------------------------------------------------------------------------
@@ -267,18 +267,18 @@ PERFORMANCE SUMMARY
 --------------------------------------------------------------------------------
 
 Latency/Time:
-  Mean search time: 4810.922 ms
-  Median search time: 4810.546 ms
-  Std deviation: 13.685 ms
-  Min/Max: 4788.227 / 4833.304 ms
+  Mean search time: 6040.120 ms
+  Median search time: 6548.661 ms
+  Std deviation: 957.520 ms
+  Min/Max: 4599.544 / 6864.952 ms
 
 Preprocessing:
-  Mean preprocessing time: 0.018314 ms
+  Mean preprocessing time: 0.027730 ms
   Preprocessing overhead: 0.00%
 
 Throughput:
-  Data throughput: 1.01 MB/s
-  Pattern matching rate: 0.21 matches/sec
+  Data throughput: 0.80 MB/s
+  Pattern matching rate: 0.17 matches/sec
 
 Memory:
   Peak memory usage: 4.633 MB
