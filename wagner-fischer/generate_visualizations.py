@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-"""
-Generate visualizations from comprehensive evaluation results.
-"""
 
 import sys
 import json
@@ -23,7 +20,6 @@ plt.rcParams['figure.figsize'] = (12, 8)
 plt.rcParams['font.size'] = 11
 
 def load_latest_results():
-    """Load the most recent evaluation results."""
     results = {}
     
     criteria = ['latency_time', 'preprocessing', 'memory', 'accuracy', 
@@ -38,7 +34,6 @@ def load_latest_results():
     return results
 
 def plot_latency_vs_edit_distance(data):
-    """Plot search latency vs edit distance."""
     fig, axes = plt.subplots(1, 2, figsize=(14, 6))
     
     # Plot 1: Mean search time by edit distance
@@ -71,7 +66,6 @@ def plot_latency_vs_edit_distance(data):
     plt.close()
 
 def plot_latency_vs_pattern_length(data):
-    """Plot search latency vs pattern length."""
     fig, axes = plt.subplots(1, 2, figsize=(14, 6))
     
     # Filter for a specific edit distance
@@ -107,7 +101,6 @@ def plot_latency_vs_pattern_length(data):
     plt.close()
 
 def plot_preprocessing_time(data):
-    """Plot preprocessing time (matrix initialization)."""
     fig, ax = plt.subplots(figsize=(10, 6))
     
     ax.plot(data['pattern_length'], data['mean_preprocessing_time_us'], 
@@ -134,7 +127,6 @@ def plot_preprocessing_time(data):
     plt.close()
 
 def plot_memory_usage(data):
-    """Plot memory usage."""
     fig, axes = plt.subplots(1, 2, figsize=(14, 6))
     
     # Plot 1: Matrix memory footprint
@@ -162,7 +154,6 @@ def plot_memory_usage(data):
     plt.close()
 
 def plot_accuracy(data):
-    """Plot accuracy metrics."""
     fig, ax = plt.subplots(figsize=(10, 6))
     
     datasets = data['dataset'].unique()
@@ -227,7 +218,6 @@ def plot_scalability_text(data):
     plt.close()
 
 def plot_scalability_patterns(data):
-    """Plot scalability with number of patterns."""
     fig, axes = plt.subplots(1, 2, figsize=(14, 6))
     
     # Plot 1: Total time vs number of patterns
@@ -286,7 +276,6 @@ def plot_robustness(data):
     plt.close()
 
 def create_summary_dashboard(results):
-    """Create a summary dashboard with key metrics."""
     fig = plt.figure(figsize=(16, 10))
     gs = fig.add_gridspec(3, 3, hspace=0.3, wspace=0.3)
     
@@ -365,7 +354,6 @@ def create_summary_dashboard(results):
     plt.close()
 
 def main():
-    """Generate all visualizations."""
     print("\n" + "="*80)
     print("GENERATING VISUALIZATIONS FOR WAGNER-FISCHER")
     print("="*80 + "\n")

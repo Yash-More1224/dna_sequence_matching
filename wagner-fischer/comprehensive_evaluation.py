@@ -1,15 +1,4 @@
 #!/usr/bin/env python3
-"""
-Comprehensive Wagner-Fischer Algorithm Evaluation
-
-Evaluates Wagner-Fischer (Edit Distance) on all required criteria:
-1. Latency / Time (runtime, per-query latency, throughput)
-2. Preprocessing time (not applicable for WF, minimal overhead)
-3. Memory usage (peak memory, DP matrix footprint)
-4. Accuracy (precision, recall, F1 - fuzzy matching evaluation)
-5. Scalability (text length, pattern set size, edit distance thresholds)
-6. Robustness (alphabet size, mutation rates, pattern characteristics)
-"""
 
 import sys
 import time
@@ -43,7 +32,6 @@ for d in [RESULTS_DIR, BENCHMARKS_DIR, REPORTS_DIR, PLOTS_DIR]:
 
 
 class ComprehensiveEvaluator:
-    """Comprehensive evaluation of Wagner-Fischer algorithm."""
     
     def __init__(self):
         """Initialize evaluator."""
@@ -92,7 +80,7 @@ class ComprehensiveEvaluator:
         print(f"\n✓ Loaded {len(self.datasets)} dataset(s)")
     
     def mutate_sequence(self, sequence: str, mutation_rate: float) -> str:
-        """Apply random mutations to a sequence."""
+       
         sequence_list = list(sequence)
         bases = ['A', 'C', 'G', 'T']
         num_mutations = int(len(sequence) * mutation_rate)
@@ -113,13 +101,7 @@ class ComprehensiveEvaluator:
         return ''.join(sequence_list)
     
     def criterion_1_latency_time(self) -> None:
-        """
-        Criterion 1: Latency / Time
-        - Total runtime for approximate matching
-        - Per-query latency
-        - Throughput (matches/sec and MB/sec)
-        - Mean, median, variance over multiple runs
-        """
+        
         print("\n" + "="*80)
         print("CRITERION 1: LATENCY / TIME ANALYSIS")
         print("="*80)
@@ -194,11 +176,7 @@ class ComprehensiveEvaluator:
                           f"matches={num_matches:4d}")
     
     def criterion_2_preprocessing(self) -> None:
-        """
-        Criterion 2: Preprocessing Time
-        - Wagner-Fischer has minimal preprocessing (just initialization)
-        - Measure overhead of creating WagnerFischer objects
-        """
+        
         print("\n" + "="*80)
         print("CRITERION 2: PREPROCESSING TIME (Initialization Overhead)")
         print("="*80)
@@ -262,12 +240,7 @@ class ComprehensiveEvaluator:
                   f"ratio={result['time_complexity_ratio']:.3f}µs/bp²")
     
     def criterion_3_memory_usage(self) -> None:
-        """
-        Criterion 3: Memory Usage
-        - Peak resident memory
-        - DP matrix footprint
-        - Space-optimized version comparison
-        """
+        
         print("\n" + "="*80)
         print("CRITERION 3: MEMORY USAGE")
         print("="*80)
@@ -336,11 +309,7 @@ class ComprehensiveEvaluator:
                   f"Reduction={result['memory_reduction_ratio']:.1f}x")
     
     def criterion_4_accuracy(self) -> None:
-        """
-        Criterion 4: Accuracy
-        - Test approximate matching with known mutations
-        - Calculate precision, recall, F1 score for fuzzy matching
-        """
+        
         print("\n" + "="*80)
         print("CRITERION 4: ACCURACY (Fuzzy Matching Evaluation)")
         print("="*80)
@@ -428,10 +397,7 @@ class ComprehensiveEvaluator:
                           f"TP={all_tp}, FP={all_fp}, FN={all_fn}")
     
     def criterion_5_scalability_text_length(self) -> None:
-        """
-        Criterion 5a: Scalability - Text Length
-        - How performance scales with increasing text size
-        """
+        
         print("\n" + "="*80)
         print("CRITERION 5a: SCALABILITY - Text Length")
         print("="*80)
@@ -490,10 +456,7 @@ class ComprehensiveEvaluator:
                   f"{result['time_per_char_us']:.3f}µs/char")
     
     def criterion_5_scalability_pattern_count(self) -> None:
-        """
-        Criterion 5b: Scalability - Pattern Count
-        - How performance scales with number of patterns
-        """
+        
         print("\n" + "="*80)
         print("CRITERION 5b: SCALABILITY - Multiple Patterns")
         print("="*80)
@@ -548,10 +511,7 @@ class ComprehensiveEvaluator:
                   f"throughput={result['patterns_per_sec']:.2f}patterns/s")
     
     def criterion_5_scalability_threshold(self) -> None:
-        """
-        Criterion 5c: Scalability - Edit Distance Threshold
-        - How performance scales with increasing max edit distance
-        """
+       
         print("\n" + "="*80)
         print("CRITERION 5c: SCALABILITY - Edit Distance Threshold")
         print("="*80)
@@ -604,12 +564,7 @@ class ComprehensiveEvaluator:
                   f"{result['time_per_match_ms']:.3f}ms/match")
     
     def criterion_6_robustness(self) -> None:
-        """
-        Criterion 6: Robustness
-        - Performance with DNA alphabet (A,C,G,T)
-        - Effect of pattern characteristics (GC content, repeats, etc.)
-        - Handling of mutations
-        """
+        
         print("\n" + "="*80)
         print("CRITERION 6: ROBUSTNESS (Pattern Characteristics & Mutations)")
         print("="*80)
@@ -695,7 +650,6 @@ class ComprehensiveEvaluator:
                   f"matches={mean_matches:.0f}")
     
     def save_results(self) -> None:
-        """Save all results to files."""
         print("\n" + "="*80)
         print("SAVING RESULTS")
         print("="*80)
@@ -727,7 +681,6 @@ class ComprehensiveEvaluator:
         print(f"✓ Saved combined results: {all_results_path.name}")
     
     def generate_comprehensive_report(self) -> None:
-        """Generate comprehensive evaluation report."""
         print("\n" + "="*80)
         print("GENERATING COMPREHENSIVE REPORT")
         print("="*80)
@@ -869,7 +822,6 @@ class ComprehensiveEvaluator:
         print("="*80)
     
     def run_all_evaluations(self) -> None:
-        """Run all evaluation criteria."""
         print("\n" + "="*80)
         print("COMPREHENSIVE WAGNER-FISCHER EVALUATION")
         print("="*80)
@@ -907,7 +859,6 @@ class ComprehensiveEvaluator:
 
 
 def main():
-    """Main execution."""
     evaluator = ComprehensiveEvaluator()
     evaluator.run_all_evaluations()
 

@@ -14,10 +14,8 @@ except ImportError:
     BIOPYTHON_AVAILABLE = False
     print("Warning: Biopython not available. Install with: pip install biopython")
 
-
 @dataclass
 class Sequence:
-    """Represents a biological sequence."""
     id: str
     sequence: str
     description: str = ""
@@ -64,15 +62,7 @@ class FastaLoader:
         return sequences
     
     def _load_simple(self, filepath: str) -> List[Sequence]:
-        """
-        Simple FASTA parser without Biopython dependency.
-        
-        Args:
-            filepath: Path to FASTA file
-            
-        Returns:
-            List of Sequence objects
-        """
+       
         sequences = []
         current_id = None
         current_seq = []

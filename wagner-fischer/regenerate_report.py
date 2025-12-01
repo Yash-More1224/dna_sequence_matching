@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-"""
-Generate comprehensive evaluation report for Wagner-Fischer algorithm.
-"""
 
 import csv
 import json
@@ -31,7 +28,6 @@ def load_csv(filename):
         return list(csv.DictReader(f))
 
 def generate_detailed_report(timestamp):
-    """Generate comprehensive report with actual data tables."""
     
     # Load all data
     latency_data = load_csv(f"latency_time_{timestamp}.csv")
