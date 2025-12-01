@@ -29,7 +29,7 @@ Average search time for 10-20bp patterns on ~100K bp sequences:
 | KMP             | 343-363       | 12.82             | Consistent O(n+m)    |
 | Boyer-Moore     | 5584-7827     | 0.69-0.94         | Full genome tests    |
 | Shift-Or/Bitap  | 140-153       | 0.65-0.71         | Pure Python impl     |
-| Wagner-Fischer  | 2.50          | 0.40 ops/s        | DP-based, 30bp       |
+| Wagner-Fischer  | 150.0         | 0.89 ops/s        | DP-based, 30bp       |
 
 WINNER: Suffix Array (for repeated queries)
 BEST SINGLE-QUERY: KMP
@@ -72,7 +72,7 @@ Trade-off Analysis:
 | Boyer-Moore     | 0.047-4.6 MB    | O(m + σ)         | 80 bytes (tables)   |
 | KMP             | 0.23-78.5 KB    | O(m)             | 8 bytes/char (LPS)  |
 | Shift-Or/Bitap  | 67-143 KB       | O(σ)             | 4 bitmasks (DNA)    |
-| Wagner-Fischer  | 0.009 MB        | O(min(m,n))      | DP row only (8.9KB) |
+| Wagner-Fischer  | 0.012 MB        | O(min(m,n))      | DP row only (12KB)  |
 
 WINNER: Wagner-Fischer / KMP (minimal memory)
 MOST MEMORY: Suffix Array (needs full index)
@@ -92,7 +92,7 @@ Notes:
 | KMP             | 100%      | 100%   | 100%     | Exact only           |
 | Suffix Array    | 100%      | 100%   | 100%     | Exact only           |
 | Shift-Or/Bitap  | 100%      | 100%   | 100%     | Exact + Approximate  |
-| Wagner-Fischer  | 100%      | 100%   | 100%     | Edit dist (0-10% mut)|
+| Wagner-Fischer  | 100%      | 60%    | 50%      | Edit dist (max=1)    |
 
 ALL EXACT MATCHING: 100% accurate
 
@@ -249,10 +249,17 @@ All evaluations performed on:
 - Salmonella typhimurium: 4,857,450 bp
 
 WAGNER-FISCHER SAMPLING NOTE:
-Wagner-Fischer evaluation used a representative sample of 250 patterns (30bp)
-at 5 mutation rates (0%, 1%, 2%, 5%, 10%) on the full E. coli genome. Given
-the algorithm's O(mn) dynamic programming structure, this sampling provides
-accurate qualitative characterization (perfect accuracy, stable latency across
-mutation rates, and quadratic scaling behavior) without exhaustive testing.
+Wagner-Fischer evaluation was constrained to complete within 10 minutes.
+The algorithm was benchmarked on:
+  - Text sizes: 1,000-5,000 bp (vs full genomes for other algorithms)
+  - Pattern lengths: 10bp, 30bp (vs 10-100bp for exact matching algorithms)
+  - Edit distances: 0-1 (vs 0-3 in unconstrained testing)
+  - Accuracy tests: 5 trials per configuration (20bp patterns, max distance=1)
+  
+Given Wagner-Fischer's O(mn) complexity, these parameters provide qualitatively
+representative performance characteristics while avoiding excessive runtime.
+The results demonstrate the fundamental performance trade-off of approximate
+matching: slower throughput (0.89 ops/s vs 100+ ops/s for exact algorithms)
+in exchange for fuzzy matching capabilities (50% F1 score with edit distance=1).
 
 ================================================================================
