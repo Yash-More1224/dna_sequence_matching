@@ -29,7 +29,7 @@ Average search time for 10-20bp patterns on ~100K bp sequences:
 | KMP             | 343-363       | 12.82             | Consistent O(n+m)    |
 | Boyer-Moore     | 4810-6936     | 0.67-1.01         | Full genome tests    |
 | Shift-Or/Bitap  | 140-153       | 0.65-0.71         | Pure Python impl     |
-| Wagner-Fischer  | ~12           | ~3.6              | DP-based             |
+| Wagner-Fischer  | 2.50          | 0.40 ops/s        | DP-based, 30bp       |
 
 WINNER: Suffix Array (for repeated queries)
 BEST SINGLE-QUERY: KMP
@@ -38,7 +38,9 @@ Notes:
 - Suffix Array has O(n²) preprocessing but O(m log n) query time
 - Boyer-Moore results are on FULL genomes (4.6-4.9M bp)
 - Shift-Or/Bitap is pure Python (C implementation would be 100x faster)
-- Wagner-Fischer is for approximate matching, different use case
+- Wagner-Fischer: Measured on 250 patterns (30bp) from full E. coli genome
+  at 5 mutation rates (0-10%). Given O(mn) complexity, sampling is
+  representative of qualitative behavior.
 
 ================================================================================
                     CRITERION 2: PREPROCESSING TIME
@@ -70,7 +72,7 @@ Trade-off Analysis:
 | Boyer-Moore     | 4.4-4.6 MB      | O(m + σ)         | 80 bytes (tables)   |
 | KMP             | 0.23-78.5 KB    | O(m)             | 8 bytes/char (LPS)  |
 | Shift-Or/Bitap  | 67-143 KB       | O(σ)             | 4 bitmasks (DNA)    |
-| Wagner-Fischer  | ~0.03 MB        | O(min(m,n))      | DP row only         |
+| Wagner-Fischer  | 0.009 MB        | O(min(m,n))      | DP row only (8.9KB) |
 
 WINNER: Wagner-Fischer / KMP (minimal memory)
 MOST MEMORY: Suffix Array (needs full index)
@@ -90,7 +92,7 @@ Notes:
 | KMP             | 100%      | 100%   | 100%     | Exact only           |
 | Suffix Array    | 100%      | 100%   | 100%     | Exact only           |
 | Shift-Or/Bitap  | 100%      | 100%   | 100%     | Exact + Approximate  |
-| Wagner-Fischer  | Variable  | Variable| Variable | Approximate (edit dist)|
+| Wagner-Fischer  | 100%      | 100%   | 100%     | Edit dist (0-10% mut)|
 
 ALL EXACT MATCHING: 100% accurate
 
@@ -238,11 +240,19 @@ Results compiled from:
 - kmp/results/reports/comprehensive_evaluation_20251119_222638_detailed.txt
 - suffix-tree_array/EVALUATION_SUMMARY.md
 - shift-bitap/results/comprehensive_6criteria.json
-- wagner-fischer/EVALUATION_SUMMARY.md
+- wagner-fischer/results/metrics.json (sampled patterns on full E. coli)
+- wagner-fischer/results/benchmarks/ (timestamped CSV/JSON per criterion)
 
 All evaluations performed on:
 - E. coli K-12 MG1655: 4,641,652 bp
 - Lambda Phage: 48,502 bp
 - Salmonella typhimurium: 4,857,450 bp
+
+WAGNER-FISCHER SAMPLING NOTE:
+Wagner-Fischer evaluation used a representative sample of 250 patterns (30bp)
+at 5 mutation rates (0%, 1%, 2%, 5%, 10%) on the full E. coli genome. Given
+the algorithm's O(mn) dynamic programming structure, this sampling provides
+accurate qualitative characterization (perfect accuracy, stable latency across
+mutation rates, and quadratic scaling behavior) without exhaustive testing.
 
 ================================================================================
