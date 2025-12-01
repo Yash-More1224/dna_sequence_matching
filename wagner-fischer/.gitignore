@@ -55,9 +55,8 @@ Thumbs.db
 
 # Logs
 *.log
-tests/
 requirements.txt
 FILE_ANALYSIS.md
 PROJECT_SUMMARY.md
 results/
-scripts/*.py
+scripts/
