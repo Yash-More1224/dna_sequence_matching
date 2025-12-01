@@ -14,9 +14,10 @@ We chose Suffix Array + LCP over a full Suffix Tree (Ukkonen's algorithm) for th
 5. LCP array enables efficient repeat/motif discovery
 
 Time/Space Complexity:
-- Construction: O(N log N) for SA, O(N) for LCP
+- Construction: O(N log²N) for SA (prefix doubling with Python sort), O(N) for LCP
 - Space: O(N) for SA and LCP arrays (2N integers total)
 - Search: O(|P| log |T|) per pattern (binary search on SA)
+- Multi-pattern Search: O(M × |P| log |T|) for M patterns
 
 Author: DNA Pattern Matching Team
 Date: November 2025
@@ -72,11 +73,15 @@ class SuffixArray:
         """
         Build the Suffix Array and LCP Array for the given text.
         
-        This method implements an O(N log N) suffix array construction using
-        prefix doubling (also known as the Manber-Myers algorithm). The LCP
-        array is then constructed in O(N) using the Kasai algorithm.
+        This method implements an O(N log²N) suffix array construction using
+        prefix doubling (Manber-Myers algorithm) with Python's built-in sort.
+        The LCP array is then constructed in O(N) using the Kasai algorithm.
         
-        Time Complexity: O(N log N) for SA construction + O(N) for LCP = O(N log N)
+        Time Complexity: O(N log²N) for SA construction + O(N) for LCP = O(N log²N)
+        - Prefix doubling runs log N iterations
+        - Each iteration sorts N elements using Python's Timsort: O(N log N)
+        - Total: O(log N) × O(N log N) = O(N log²N)
+        
         Space Complexity: O(N)
         
         Args:
@@ -84,14 +89,21 @@ class SuffixArray:
             
         Returns:
             Tuple[float, int]: (preprocessing_time in seconds, memory_footprint in bytes)
+        
+        Raises:
+            ValueError: If text is empty
         """
+        # Edge case: Empty text
+        if not text:
+            raise ValueError("Cannot build suffix array on empty text")
+        
         start_time = time.perf_counter()
         
         # Add sentinel character to ensure proper suffix ordering
         self.text = text + '$'
         self.n = len(self.text)
         
-        # Build suffix array using O(N log N) prefix doubling
+        # Build suffix array using O(N log²N) prefix doubling
         self.sa = self._build_suffix_array_prefix_doubling()
         
         # Build LCP array in O(N) using Kasai's algorithm
@@ -116,9 +128,10 @@ class SuffixArray:
         """
         Build suffix array using prefix doubling (Manber-Myers algorithm).
         
-        This is an O(N log N) algorithm that sorts suffixes by comparing increasingly
+        This is an O(N log²N) algorithm that sorts suffixes by comparing increasingly
         longer prefixes (length 1, 2, 4, 8, ..., N). At each iteration, we use the
-        previously computed ranks to sort in O(N log N).
+        previously computed ranks to sort in O(N log N). Since we have log N iterations,
+        total complexity is O(N log²N).
         
         Returns:
             List[int]: The suffix array
@@ -267,6 +280,49 @@ class SuffixArray:
         """
         matches = self.search_exact(pattern)
         return matches[0] if matches else None
+    
+    def search_multiple(self, patterns: List[str]) -> Dict[str, List[int]]:
+        """
+        Search for multiple patterns in the indexed text (Multi-pattern search).
+        
+        This method efficiently searches for multiple patterns by reusing the
+        same suffix array index, avoiding repeated preprocessing.
+        
+        Time Complexity: O(M × |P| log |T|) where:
+            - M is the number of patterns
+            - |P| is the average pattern length
+            - |T| is the text length
+        
+        Space Complexity: O(M × k) where k is the average number of matches per pattern
+        
+        Args:
+            patterns (List[str]): List of DNA patterns to search for
+            
+        Returns:
+            Dict[str, List[int]]: Dictionary mapping each pattern to its match positions
+                                 Empty list if pattern not found
+        
+        Example:
+            >>> sa = SuffixArray("ACGTACGTACGT")
+            >>> results = sa.search_multiple(["ACG", "CGT", "TAC"])
+            >>> # results = {"ACG": [0, 4, 8], "CGT": [2, 6, 10], "TAC": [3, 7]}
+        """
+        if not self.sa:
+            return {pattern: [] for pattern in patterns}
+        
+        results = {}
+        total_comparisons = 0
+        
+        for pattern in patterns:
+            matches = self.search_exact(pattern)
+            results[pattern] = matches
+            total_comparisons += self.comparisons
+        
+        # Update total comparisons for statistics
+        self.comparisons = total_comparisons
+        self.pattern = f"Multi-pattern search: {len(patterns)} patterns"
+        
+        return results
     
     def _binary_search_left(self, pattern: str) -> int:
         """
